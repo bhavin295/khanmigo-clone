@@ -51,7 +51,7 @@ function NavLinks({ links, tier, onNavigate }: { links: NavItem[]; tier: "free" 
             <div
               key={item.href}
               className="flex cursor-not-allowed items-center justify-between rounded-xl px-3 py-2.5 text-sm font-medium"
-              style={{ color: "rgba(255,255,255,0.3)" }}
+              style={{ color: "var(--text-faint)" }}
             >
               <span className="flex items-center gap-3">
                 <span>{item.icon}</span>
@@ -74,7 +74,7 @@ function NavLinks({ links, tier, onNavigate }: { links: NavItem[]; tier: "free" 
             style={
               isActive
                 ? { background: "rgba(124,58,237,0.15)", color: "#C4B5FD" }
-                : { color: "rgba(255,255,255,0.5)" }
+                : { color: "var(--text-muted)" }
             }
           >
             <span>{item.icon}</span>
@@ -109,7 +109,9 @@ export function StudentShell({ children, fullName, gradeLevel, subscriptionTier,
                 width: 34,
                 height: 34,
                 borderRadius: 10,
-                background: "linear-gradient(135deg,#7C3AED,#2563EB)",
+                background: "#FFFFFF",
+                border: "0.5px solid rgba(45,212,191,0.35)",
+                boxShadow: "0 12px 28px rgba(45,212,191,0.14)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -118,19 +120,27 @@ export function StudentShell({ children, fullName, gradeLevel, subscriptionTier,
             >
               🎓
             </div>
-            <span style={{ color: "#fff", fontSize: 17, fontWeight: 700, letterSpacing: "-0.3px" }}>
-              TutorAI
+            <span
+              style={{
+                fontSize: 17,
+                fontWeight: 900,
+                letterSpacing: "-0.3px",
+                fontFamily: "var(--font-sora, Fraunces, serif)",
+              }}
+            >
+              <span style={{ color: "var(--text)" }}>Tutor</span>
+              <span style={{ color: "#059669" }}>AI</span>
             </span>
           </Link>
         </div>
 
-        <div className="mx-4 mb-4 rounded-2xl p-4" style={{ background: "rgba(255,255,255,0.04)", border: "0.5px solid var(--border)" }}>
+        <div className="mx-4 mb-4 rounded-2xl p-4" style={{ background: "rgba(15,23,42,0.04)", border: "0.5px solid var(--border)" }}>
           <div className="flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-violet-600 text-sm font-semibold text-white">
               {initials}
             </div>
             <div className="min-w-0">
-              <p className="truncate text-sm font-semibold" style={{ color: "#fff" }}>{fullName}</p>
+              <p className="truncate text-sm font-semibold" style={{ color: "var(--text)" }}>{fullName}</p>
               <p className="mb-1 mt-1 text-xs" style={{ color: "var(--text-faint)" }}>Logged in as</p>
               <RoleBadge role={role} size="sm" />
               <div className="mt-1 flex items-center gap-2">
@@ -145,30 +155,31 @@ export function StudentShell({ children, fullName, gradeLevel, subscriptionTier,
                     PRO
                   </span>
                 ) : (
-                  <span className="rounded-full px-2 py-0.5 text-xs" style={{ background: "rgba(255,255,255,0.06)", color: "var(--text-muted)" }}>FREE</span>
+                  <span className="rounded-full px-2 py-0.5 text-xs" style={{ background: "rgba(15,23,42,0.04)", color: "var(--text-muted)" }}>FREE</span>
                 )}
               </div>
             </div>
           </div>
         </div>
 
-        <p className="mb-2 px-4 text-xs font-semibold tracking-wider" style={{ color: "rgba(255,255,255,0.25)" }}>LEARN</p>
+        <p className="mb-2 px-4 text-xs font-semibold tracking-wider" style={{ color: "var(--text-faint)" }}>LEARN</p>
         <NavLinks links={LEARN_LINKS} tier={subscriptionTier} />
 
-        <p className="mb-2 mt-6 px-4 text-xs font-semibold tracking-wider" style={{ color: "rgba(255,255,255,0.25)" }}>PROGRESS</p>
+        <p className="mb-2 mt-6 px-4 text-xs font-semibold tracking-wider" style={{ color: "var(--text-faint)" }}>PROGRESS</p>
         <NavLinks links={PROGRESS_LINKS} tier={subscriptionTier} />
 
         <div className="mt-auto p-4" style={{ borderTop: "0.5px solid var(--border)" }}>
           {subscriptionTier === "free" ? (
             <div
-              className="mb-4 rounded-2xl p-4 text-white"
-              style={{ background: "linear-gradient(135deg, #7C3AED 0%, #2563EB 100%)" }}
+              className="mb-4 rounded-2xl p-4"
+              style={{ background: "rgba(124,58,237,0.14)", border: "0.5px solid rgba(124,58,237,0.25)" }}
             >
               <p className="font-semibold">⚡ Upgrade to Pro</p>
-              <p className="mt-1 text-xs text-white/80">Unlock all subjects + unlimited chats</p>
+              <p className="mt-1 text-xs" style={{ color: "var(--text-muted)" }}>Unlock all subjects + unlimited chats</p>
               <Link
                 href="/upgrade"
-                className="mt-3 block w-full rounded-xl border border-white/10 bg-white/10 px-4 py-2 text-center text-sm font-semibold text-white"
+                className="mt-3 block w-full rounded-xl border px-4 py-2 text-center text-sm font-semibold"
+                style={{ background: "rgba(124,58,237,0.16)", borderColor: "rgba(124,58,237,0.30)", color: "var(--text)" }}
               >
                 Upgrade Now
               </Link>
@@ -184,7 +195,7 @@ export function StudentShell({ children, fullName, gradeLevel, subscriptionTier,
             type="button"
             onClick={() => setMobileOpen(true)}
             className="rounded-lg p-1.5"
-            style={{ color: "rgba(255,255,255,0.6)" }}
+            style={{ color: "var(--text-muted)" }}
             aria-label="Open menu"
           >
             ☰
@@ -195,7 +206,9 @@ export function StudentShell({ children, fullName, gradeLevel, subscriptionTier,
                 width: 28,
                 height: 28,
                 borderRadius: 8,
-                background: "linear-gradient(135deg,#7C3AED,#2563EB)",
+                background: "#FFFFFF",
+                border: "0.5px solid rgba(45,212,191,0.35)",
+                boxShadow: "0 12px 28px rgba(45,212,191,0.14)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -204,8 +217,17 @@ export function StudentShell({ children, fullName, gradeLevel, subscriptionTier,
             >
               🎓
             </div>
-            <span style={{ color: "#fff", fontSize: 15, fontWeight: 700, letterSpacing: "-0.3px" }}>
-              TutorAI
+            <span
+              style={{
+                color: "var(--text)",
+                fontSize: 15,
+                fontWeight: 900,
+                letterSpacing: "-0.3px",
+                fontFamily: "var(--font-sora, Fraunces, serif)",
+              }}
+            >
+              <span> Tutor</span>
+              <span style={{ color: "#059669" }}>AI</span>
             </span>
           </Link>
           <div className="flex items-center gap-1.5">
@@ -218,14 +240,14 @@ export function StudentShell({ children, fullName, gradeLevel, subscriptionTier,
 
         <div className="md:hidden">
           <MobileNav open={mobileOpen} onClose={() => setMobileOpen(false)} title="TutorAI">
-            <div className="mx-4 mb-4 rounded-2xl p-4" style={{ background: "rgba(255,255,255,0.04)", border: "0.5px solid var(--border)" }}>
-              <p className="text-sm font-semibold" style={{ color: "#fff" }}>{fullName}</p>
+            <div className="mx-4 mb-4 rounded-2xl p-4" style={{ background: "rgba(15,23,42,0.04)", border: "0.5px solid var(--border)" }}>
+              <p className="text-sm font-semibold" style={{ color: "var(--text)" }}>{fullName}</p>
               <p className="mb-1 mt-2 text-xs" style={{ color: "var(--text-faint)" }}>Logged in as</p>
               <RoleBadge role={role} size="sm" />
             </div>
-            <p className="mb-2 px-4 text-xs font-semibold tracking-wider" style={{ color: "rgba(255,255,255,0.25)" }}>LEARN</p>
+            <p className="mb-2 px-4 text-xs font-semibold tracking-wider" style={{ color: "var(--text-faint)" }}>LEARN</p>
             <NavLinks links={LEARN_LINKS} tier={subscriptionTier} onNavigate={() => setMobileOpen(false)} />
-            <p className="mb-2 mt-6 px-4 text-xs font-semibold tracking-wider" style={{ color: "rgba(255,255,255,0.25)" }}>PROGRESS</p>
+            <p className="mb-2 mt-6 px-4 text-xs font-semibold tracking-wider" style={{ color: "var(--text-faint)" }}>PROGRESS</p>
             <NavLinks
               links={PROGRESS_LINKS}
               tier={subscriptionTier}

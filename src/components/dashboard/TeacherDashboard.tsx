@@ -23,14 +23,14 @@ export default function TeacherDashboard({
   return (
     <div className="mx-auto max-w-6xl space-y-6 p-6 md:p-8">
       <section
-        className="rounded-3xl p-8 text-white"
-        style={{ background: 'linear-gradient(135deg, rgba(5,150,105,0.35), rgba(13,148,136,0.2))', border: '0.5px solid rgba(5,150,105,0.2)' }}
+        className="rounded-3xl p-8"
+        style={{ background: 'rgba(45,212,191,0.16)', border: '0.5px solid rgba(45,212,191,0.26)' }}
       >
-        <h1 className="text-3xl font-bold">Welcome, {firstName}</h1>
+        <h1 className="text-3xl font-bold" style={{ color: 'var(--text)' }}>Welcome, {firstName}</h1>
         <div className="mt-3">
           <RoleBadge role="teacher" size="md" />
         </div>
-        <p className="mt-3 text-sm text-white/80">
+        <p className="mt-3 text-sm" style={{ color: 'var(--text-muted)' }}>
           You have {conversations.length} recent conversation{conversations.length === 1 ? '' : 's'}.
         </p>
       </section>

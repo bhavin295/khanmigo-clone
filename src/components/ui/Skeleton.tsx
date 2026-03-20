@@ -6,14 +6,21 @@ type SkeletonProps = {
 
 export function Skeleton({ className }: SkeletonProps) {
   return (
-    <div
-      className={clsx("rounded-xl", className)}
-      style={{
-        background:
-          "linear-gradient(90deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.05) 100%)",
-        backgroundSize: "200% 100%",
-        animation: "shimmer 1.5s infinite",
-      }}
-    />
+    <>
+      <style>{`
+        @keyframes skeletonPulse {
+          0% { opacity: 0.55; }
+          50% { opacity: 1; }
+          100% { opacity: 0.55; }
+        }
+      `}</style>
+      <div
+        className={clsx("rounded-xl", className)}
+        style={{
+          background: "rgba(15,23,42,0.06)",
+          animation: "skeletonPulse 1.4s ease-in-out infinite",
+        }}
+      />
+    </>
   );
 }

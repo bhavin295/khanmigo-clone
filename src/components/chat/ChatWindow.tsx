@@ -261,8 +261,8 @@ export function ChatWindow({ subject, conversationId, userId }: ChatWindowProps)
           onToggleCoachMode={() => setMode((current) => current === 'writing_coach' ? 'tutor' : 'writing_coach')}
         />
 
-        <div className="flex items-center justify-end px-4 py-2 md:px-6" style={{ background: 'var(--bg-surface)', borderBottom: '0.5px solid rgba(255,255,255,0.04)' }}>
-          <button type="button" onClick={() => setFeaturePanelOpen((value) => !value)} className="inline-flex items-center gap-2 rounded-xl border px-3 py-2 text-sm" style={{ background: 'rgba(255,255,255,0.05)', borderColor: 'var(--border)', color: 'var(--text-muted)' }}>
+        <div className="flex items-center justify-end px-4 py-2 md:px-6" style={{ background: 'var(--bg-surface)', borderBottom: '0.5px solid rgba(15,23,42,0.08)' }}>
+          <button type="button" onClick={() => setFeaturePanelOpen((value) => !value)} className="inline-flex items-center gap-2 rounded-xl border px-3 py-2 text-sm" style={{ background: 'rgba(15,23,42,0.04)', borderColor: 'var(--border)', color: 'var(--text-muted)' }}>
             {featurePanelOpen ? <PanelRightClose className="h-4 w-4" /> : <PanelRightOpen className="h-4 w-4" />}
             Features
           </button>
@@ -278,11 +278,11 @@ export function ChatWindow({ subject, conversationId, userId }: ChatWindowProps)
               {messages.length === 0 ? (
                 <div className="flex h-full flex-col items-center justify-center px-4 pb-20 text-center">
                   <span className="mb-5 text-7xl" style={{ animation: 'float 3s ease-in-out infinite' }}>{config.icon}</span>
-                  <h3 className="text-2xl font-bold" style={{ color: '#fff' }}>Hi! I am your {config.name} tutor 🎓</h3>
+                  <h3 className="text-2xl font-bold" style={{ color: 'var(--text)' }}>Hi! I am your {config.name} tutor 🎓</h3>
                   <p className="mt-2 max-w-sm text-sm" style={{ color: 'var(--text-muted)' }}>I will guide you step-by-step without giving away the answers. Ask me anything!</p>
                   <div className="mt-6 flex flex-wrap justify-center gap-2">
                     {prompts.map((prompt) => (
-                      <button key={prompt} type="button" onClick={() => setInput(prompt)} className="rounded-full border px-4 py-2 text-sm transition-all" style={{ borderColor: 'rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.05)', color: 'var(--text-muted)' }}>
+                      <button key={prompt} type="button" onClick={() => setInput(prompt)} className="rounded-full border px-4 py-2 text-sm transition-all" style={{ borderColor: 'rgba(15,23,42,0.12)', background: 'rgba(15,23,42,0.04)', color: 'var(--text-muted)' }}>
                         {prompt}
                       </button>
                     ))}
@@ -345,7 +345,7 @@ export function ChatWindow({ subject, conversationId, userId }: ChatWindowProps)
                 type="button"
                 onClick={() => setFeatureTab(key as 'history' | 'progress' | 'adaptive')}
                 className="rounded-full px-3 py-1.5 text-xs font-medium"
-                style={featureTab === key ? { background: 'var(--grad)', color: '#fff' } : { background: 'rgba(255,255,255,0.05)', color: 'var(--text-muted)' }}
+                style={featureTab === key ? { background: 'var(--grad)', color: '#fff' } : { background: 'rgba(15,23,42,0.04)', color: 'var(--text-muted)' }}
               >
                 {label}
               </button>
@@ -356,7 +356,7 @@ export function ChatWindow({ subject, conversationId, userId }: ChatWindowProps)
             {featureTab === 'history' ? <ChatHistory userId={userId} onSelectConversation={handleSelectConversation} /> : null}
             {featureTab === 'progress' ? (
               <div className="space-y-4">
-                <div className="flex items-center gap-2 text-sm font-semibold" style={{ color: '#fff' }}>
+                <div className="flex items-center gap-2 text-sm font-semibold" style={{ color: 'var(--text)' }}>
                   <Sparkles className="h-4 w-4 text-violet-300" />
                   Subject Progress
                 </div>
@@ -366,7 +366,7 @@ export function ChatWindow({ subject, conversationId, userId }: ChatWindowProps)
                       <span>{SUBJECT_META[entry].name}</span>
                       <span>{progressMap.get(entry) ?? 0} sessions</span>
                     </div>
-                    <div className="h-2 rounded-full" style={{ background: 'rgba(255,255,255,0.08)' }}>
+                    <div className="h-2 rounded-full" style={{ background: 'rgba(15,23,42,0.06)' }}>
                       <div className="h-full rounded-full" style={{ width: `${Math.min(((progressMap.get(entry) ?? 0) / 20) * 100, 100)}%`, background: entry === 'math' ? '#A78BFA' : entry === 'reading' ? '#34D399' : entry === 'science' ? '#FCD34D' : '#F9A8D4' }} />
                     </div>
                   </div>

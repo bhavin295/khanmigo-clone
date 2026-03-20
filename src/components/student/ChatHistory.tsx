@@ -60,7 +60,7 @@ export function ChatHistory({
     <div className="flex h-full flex-col">
       <div className="relative mb-3">
         <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2" style={{ color: 'var(--text-faint)' }} />
-        <input value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} placeholder="Search sessions" className="w-full rounded-xl py-3 pl-10 pr-4 text-sm" style={{ background: 'var(--bg-input)', border: '0.5px solid var(--border)', color: '#fff' }} />
+        <input value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} placeholder="Search sessions" className="w-full rounded-xl py-3 pl-10 pr-4 text-sm" style={{ background: 'var(--bg-input)', border: '0.5px solid var(--border)', color: 'var(--text)' }} />
       </div>
 
       <div className="mb-3 flex flex-wrap gap-2">
@@ -87,13 +87,13 @@ export function ChatHistory({
             type="button"
             onClick={() => onSelectConversation(conversation.id, conversation.subject)}
             className="flex w-full items-center gap-3 border-b py-3 text-left"
-            style={{ borderColor: 'rgba(255,255,255,0.05)' }}
+            style={{ borderColor: 'rgba(15,23,42,0.08)' }}
           >
             <span className="h-2 w-2 rounded-full" style={{ background: subjectDots[conversation.subject] ?? '#A78BFA' }} />
             <div className="min-w-0 flex-1">
-              <p className="truncate text-sm font-medium" style={{ color: '#fff' }}>{conversation.title || 'Session'}</p>
+              <p className="truncate text-sm font-medium" style={{ color: 'var(--text)' }}>{conversation.title || 'Session'}</p>
               {conversation.mode && conversation.mode !== 'tutor' ? (
-                <span className="mt-1 inline-flex rounded-full px-2 py-0.5 text-[10px] font-medium" style={{ background: 'rgba(255,255,255,0.06)', color: 'var(--text-muted)' }}>
+                <span className="mt-1 inline-flex rounded-full px-2 py-0.5 text-[10px] font-medium" style={{ background: 'rgba(167,139,250,0.15)', color: '#6D28D9' }}>
                   {conversation.mode === 'homework' ? 'Homework Help' : 'Writing Coach'}
                 </span>
               ) : null}

@@ -55,7 +55,7 @@ function ChildLinks({ items, onNavigate }: { items: ParentChild[]; onNavigate?: 
             style={
               active
                 ? { background: "rgba(217,119,6,0.1)", color: "#FDE68A" }
-                : { color: "rgba(255,255,255,0.5)" }
+                : { color: "var(--text-muted)" }
             }
           >
             <span
@@ -100,7 +100,7 @@ function ReportLinks({ onNavigate }: { onNavigate?: () => void }) {
             style={
               active
                 ? { background: "rgba(217,119,6,0.1)", color: "#FDE68A" }
-                : { color: "rgba(255,255,255,0.5)" }
+                : { color: "var(--text-muted)" }
             }
           >
             <span>{item.icon}</span>
@@ -135,7 +135,9 @@ export function ParentShell({ children, fullName, subscriptionTier, childrenNav,
                 width: 34,
                 height: 34,
                 borderRadius: 10,
-                background: "linear-gradient(135deg,#7C3AED,#2563EB)",
+                background: "#FFFFFF",
+                border: "0.5px solid rgba(45,212,191,0.35)",
+                boxShadow: "0 12px 28px rgba(45,212,191,0.14)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -144,43 +146,56 @@ export function ParentShell({ children, fullName, subscriptionTier, childrenNav,
             >
               🎓
             </div>
-            <span style={{ color: "#fff", fontSize: 17, fontWeight: 700, letterSpacing: "-0.3px" }}>
-              TutorAI
+            <span
+              style={{
+                color: "var(--text)",
+                fontSize: 17,
+                fontWeight: 900,
+                letterSpacing: "-0.3px",
+                fontFamily: "var(--font-sora, Fraunces, serif)",
+              }}
+            >
+              <span> Tutor</span>
+              <span style={{ color: "#059669" }}>AI</span>
             </span>
           </Link>
         </div>
 
-        <div className="mx-4 mb-4 rounded-2xl p-4" style={{ background: "rgba(255,255,255,0.04)", border: "0.5px solid var(--border)" }}>
+        <div className="mx-4 mb-4 rounded-2xl p-4" style={{ background: "rgba(15,23,42,0.04)", border: "0.5px solid var(--border)" }}>
           <div className="flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-amber-500 text-sm font-semibold text-white">
               {initials}
             </div>
             <div className="min-w-0">
-              <p className="truncate text-sm font-semibold" style={{ color: "#fff" }}>{fullName}</p>
+              <p className="truncate text-sm font-semibold" style={{ color: "var(--text)" }}>{fullName}</p>
               <p className="mb-1 mt-1 text-xs" style={{ color: "var(--text-faint)" }}>Logged in as</p>
               <RoleBadge role={role} size="sm" />
             </div>
           </div>
         </div>
 
-        <p className="mb-2 px-4 text-xs font-semibold tracking-wider" style={{ color: "rgba(255,255,255,0.25)" }}>MY CHILDREN</p>
+        <p className="mb-2 px-4 text-xs font-semibold tracking-wider" style={{ color: "var(--text-faint)" }}>MY CHILDREN</p>
         <ChildLinks items={childrenNav} />
 
-        <p className="mb-2 mt-6 px-4 text-xs font-semibold tracking-wider" style={{ color: "rgba(255,255,255,0.25)" }}>REPORTS</p>
+        <p className="mb-2 mt-6 px-4 text-xs font-semibold tracking-wider" style={{ color: "var(--text-faint)" }}>REPORTS</p>
         <ReportLinks />
 
         <div className="mt-auto p-4" style={{ borderTop: "0.5px solid var(--border)" }}>
-          <div className="mb-4 rounded-2xl p-3" style={{ background: "rgba(255,255,255,0.04)", border: "0.5px solid var(--border)" }}>
+          <div className="mb-4 rounded-2xl p-3" style={{ background: "rgba(15,23,42,0.04)", border: "0.5px solid var(--border)" }}>
             <p className="text-xs" style={{ color: "var(--text-faint)" }}>Current Plan</p>
-            <p className="text-sm font-semibold uppercase" style={{ color: "#fff" }}>{subscriptionTier}</p>
+            <p className="text-sm font-semibold uppercase" style={{ color: "var(--text)" }}>{subscriptionTier}</p>
           </div>
           {subscriptionTier === "free" ? (
-            <div className="mb-4 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-500 p-4 text-white">
+            <div
+              className="mb-4 rounded-2xl p-4"
+              style={{ background: "rgba(217,119,6,0.14)", border: "0.5px solid rgba(217,119,6,0.25)" }}
+            >
               <p className="font-semibold">⚡ Upgrade for Family Pro</p>
-              <p className="mt-1 text-xs text-white/80">Unlock detailed reports and unlimited sessions</p>
+              <p className="mt-1 text-xs" style={{ color: "var(--text-muted)" }}>Unlock detailed reports and unlimited sessions</p>
               <Link
                 href="/upgrade"
-                className="mt-3 block rounded-xl border border-white/10 bg-white/10 px-4 py-2 text-center text-sm font-semibold text-white"
+                className="mt-3 block rounded-xl border px-4 py-2 text-center text-sm font-semibold"
+                style={{ borderColor: "rgba(217,119,6,0.35)", background: "rgba(217,119,6,0.16)", color: "var(--text)" }}
               >
                 Upgrade Now
               </Link>
@@ -196,7 +211,7 @@ export function ParentShell({ children, fullName, subscriptionTier, childrenNav,
             type="button"
             onClick={() => setMobileOpen(true)}
             className="rounded-lg p-1.5"
-            style={{ color: "rgba(255,255,255,0.6)" }}
+            style={{ color: "var(--text-muted)" }}
             aria-label="Open menu"
           >
             ☰
@@ -207,7 +222,9 @@ export function ParentShell({ children, fullName, subscriptionTier, childrenNav,
                 width: 28,
                 height: 28,
                 borderRadius: 8,
-                background: "linear-gradient(135deg,#7C3AED,#2563EB)",
+                background: "#FFFFFF",
+                border: "0.5px solid rgba(45,212,191,0.35)",
+                boxShadow: "0 12px 28px rgba(45,212,191,0.14)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -216,8 +233,17 @@ export function ParentShell({ children, fullName, subscriptionTier, childrenNav,
             >
               🎓
             </div>
-            <span style={{ color: "#fff", fontSize: 15, fontWeight: 700, letterSpacing: "-0.3px" }}>
-              TutorAI
+            <span
+              style={{
+                color: "var(--text)",
+                fontSize: 15,
+                fontWeight: 900,
+                letterSpacing: "-0.3px",
+                fontFamily: "var(--font-sora, Fraunces, serif)",
+              }}
+            >
+              <span> Tutor</span>
+              <span style={{ color: "#059669" }}>AI</span>
             </span>
           </Link>
           <div className="flex items-center gap-1.5">
@@ -230,16 +256,16 @@ export function ParentShell({ children, fullName, subscriptionTier, childrenNav,
 
         <div className="md:hidden">
           <MobileNav open={mobileOpen} onClose={() => setMobileOpen(false)} title="TutorAI">
-            <div className="mx-4 mb-4 rounded-2xl p-4" style={{ background: "rgba(255,255,255,0.04)", border: "0.5px solid var(--border)" }}>
-              <p className="text-sm font-semibold" style={{ color: "#fff" }}>{fullName}</p>
+            <div className="mx-4 mb-4 rounded-2xl p-4" style={{ background: "rgba(15,23,42,0.04)", border: "0.5px solid var(--border)" }}>
+              <p className="text-sm font-semibold" style={{ color: "var(--text)" }}>{fullName}</p>
               <p className="mb-1 mt-2 text-xs" style={{ color: "var(--text-faint)" }}>Logged in as</p>
               <RoleBadge role={role} size="sm" />
             </div>
 
-            <p className="mb-2 px-4 text-xs font-semibold tracking-wider" style={{ color: "rgba(255,255,255,0.25)" }}>MY CHILDREN</p>
+            <p className="mb-2 px-4 text-xs font-semibold tracking-wider" style={{ color: "var(--text-faint)" }}>MY CHILDREN</p>
             <ChildLinks items={childrenNav} onNavigate={() => setMobileOpen(false)} />
 
-            <p className="mb-2 mt-6 px-4 text-xs font-semibold tracking-wider" style={{ color: "rgba(255,255,255,0.25)" }}>REPORTS</p>
+            <p className="mb-2 mt-6 px-4 text-xs font-semibold tracking-wider" style={{ color: "var(--text-faint)" }}>REPORTS</p>
             <ReportLinks onNavigate={() => setMobileOpen(false)} />
 
             <div className="mt-6 px-4 pt-4" style={{ borderTop: "0.5px solid var(--border)" }}>

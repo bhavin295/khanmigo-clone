@@ -66,12 +66,12 @@ export function MessageBubble({ role, content, timestamp, mathSteps, solution }:
     return (
       <div className="mb-5">
         <div className="flex items-start gap-3">
-          <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-500 to-blue-500 text-lg text-white">🎓</div>
-          <div className="max-w-[80%] rounded-[4px_18px_18px_18px] border px-5 py-4 md:max-w-[65%]" style={{ background: 'rgba(255,255,255,0.06)', borderColor: 'rgba(255,255,255,0.1)', color: 'var(--text)' }}>
+          <div className="flex h-9 w-9 items-center justify-center rounded-2xl text-lg" style={{ background: 'rgba(167,139,250,0.18)', color: '#6D28D9' }}>🎓</div>
+          <div className="max-w-[80%] rounded-[4px_18px_18px_18px] border px-5 py-4 md:max-w-[65%]" style={{ background: 'rgba(167,139,250,0.10)', borderColor: 'rgba(167,139,250,0.22)', color: 'var(--text)' }}>
             {contentNode}
             <div className="mt-3 flex items-center justify-between gap-3">
               <p className="text-xs" style={{ color: 'var(--text-faint)' }}>{timeLabel}</p>
-              <button type="button" onClick={speak} className="inline-flex h-8 w-8 items-center justify-center rounded-full" style={{ background: speaking ? 'rgba(124,58,237,0.18)' : 'rgba(255,255,255,0.05)', color: speaking ? '#C4B5FD' : 'var(--text-muted)' }}>
+              <button type="button" onClick={speak} className="inline-flex h-8 w-8 items-center justify-center rounded-full" style={{ background: speaking ? 'rgba(167,139,250,0.22)' : 'rgba(15,23,42,0.05)', color: speaking ? '#6D28D9' : 'var(--text-muted)' }}>
                 <Volume2 className="h-4 w-4" />
               </button>
             </div>
@@ -84,9 +84,9 @@ export function MessageBubble({ role, content, timestamp, mathSteps, solution }:
   return (
     <div className="mb-5">
       <div className="flex items-end justify-end gap-3">
-        <div className="max-w-[80%] rounded-[18px_18px_4px_18px] px-5 py-4 md:max-w-[65%]" style={{ background: 'linear-gradient(135deg, rgba(124,58,237,0.55), rgba(37,99,235,0.45))', border: '0.5px solid rgba(124,58,237,0.3)', color: 'rgba(255,255,255,0.92)' }}>
+        <div className="max-w-[80%] rounded-[18px_18px_4px_18px] px-5 py-4 md:max-w-[65%]" style={{ background: 'rgba(45,212,191,0.14)', border: '0.5px solid rgba(45,212,191,0.25)', color: 'var(--text)' }}>
           {contentNode}
-          <p className="mt-2 mr-2 text-right text-xs text-white/60">{timeLabel}</p>
+          <p className="mt-2 mr-2 text-right text-xs" style={{ color: 'rgba(15,23,42,0.42)' }}>{timeLabel}</p>
         </div>
       </div>
     </div>

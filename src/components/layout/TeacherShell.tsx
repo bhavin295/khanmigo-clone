@@ -64,7 +64,7 @@ function NavLinks({
             style={
               isActive
                 ? { background: "rgba(5,150,105,0.12)", color: "#6EE7B7" }
-                : { color: "rgba(255,255,255,0.5)" }
+                : { color: "var(--text-muted)" }
             }
           >
             <span className="flex items-center gap-3">
@@ -104,7 +104,9 @@ export function TeacherShell({ children, fullName, unreviewedFlagsCount, role }:
                 width: 34,
                 height: 34,
                 borderRadius: 10,
-                background: "linear-gradient(135deg,#7C3AED,#2563EB)",
+                background: "#FFFFFF",
+                border: "0.5px solid rgba(45,212,191,0.35)",
+                boxShadow: "0 12px 28px rgba(45,212,191,0.14)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -113,29 +115,38 @@ export function TeacherShell({ children, fullName, unreviewedFlagsCount, role }:
             >
               🎓
             </div>
-            <span style={{ color: "#fff", fontSize: 17, fontWeight: 700, letterSpacing: "-0.3px" }}>
-              TutorAI
+            <span
+              style={{
+                color: "var(--text)",
+                fontSize: 17,
+                fontWeight: 900,
+                letterSpacing: "-0.3px",
+                fontFamily: "var(--font-sora, Fraunces, serif)",
+              }}
+            >
+              <span> Tutor</span>
+              <span style={{ color: "#059669" }}>AI</span>
             </span>
           </Link>
         </div>
 
-        <div className="mx-4 mb-4 rounded-2xl p-4" style={{ background: "rgba(255,255,255,0.04)", border: "0.5px solid var(--border)" }}>
+        <div className="mx-4 mb-4 rounded-2xl p-4" style={{ background: "rgba(15,23,42,0.04)", border: "0.5px solid var(--border)" }}>
           <div className="flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-600 text-sm font-semibold text-white">
               {initials}
             </div>
             <div className="min-w-0">
-              <p className="truncate text-sm font-semibold" style={{ color: "#fff" }}>{fullName}</p>
+              <p className="truncate text-sm font-semibold" style={{ color: "var(--text)" }}>{fullName}</p>
               <p className="mb-1 mt-1 text-xs" style={{ color: "var(--text-faint)" }}>Logged in as</p>
               <RoleBadge role={role} size="sm" />
             </div>
           </div>
         </div>
 
-        <p className="mb-2 px-4 text-xs font-semibold tracking-wider" style={{ color: "rgba(255,255,255,0.25)" }}>TOOLS</p>
+        <p className="mb-2 px-4 text-xs font-semibold tracking-wider" style={{ color: "var(--text-faint)" }}>TOOLS</p>
         <NavLinks links={TOOLS_LINKS} unreviewedFlagsCount={unreviewedFlagsCount} />
 
-        <p className="mb-2 mt-6 px-4 text-xs font-semibold tracking-wider" style={{ color: "rgba(255,255,255,0.25)" }}>CLASSROOM</p>
+        <p className="mb-2 mt-6 px-4 text-xs font-semibold tracking-wider" style={{ color: "var(--text-faint)" }}>CLASSROOM</p>
         <NavLinks links={CLASSROOM_LINKS} unreviewedFlagsCount={unreviewedFlagsCount} />
 
         <div className="mt-auto p-4" style={{ borderTop: "0.5px solid var(--border)" }}>
@@ -149,7 +160,7 @@ export function TeacherShell({ children, fullName, unreviewedFlagsCount, role }:
             type="button"
             onClick={() => setMobileOpen(true)}
             className="rounded-lg p-1.5"
-            style={{ color: "rgba(255,255,255,0.6)" }}
+            style={{ color: "var(--text-muted)" }}
             aria-label="Open menu"
           >
             ☰
@@ -160,7 +171,9 @@ export function TeacherShell({ children, fullName, unreviewedFlagsCount, role }:
                 width: 28,
                 height: 28,
                 borderRadius: 8,
-                background: "linear-gradient(135deg,#7C3AED,#2563EB)",
+                background: "#FFFFFF",
+                border: "0.5px solid rgba(45,212,191,0.35)",
+                boxShadow: "0 12px 28px rgba(45,212,191,0.14)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -169,8 +182,17 @@ export function TeacherShell({ children, fullName, unreviewedFlagsCount, role }:
             >
               🎓
             </div>
-            <span style={{ color: "#fff", fontSize: 15, fontWeight: 700, letterSpacing: "-0.3px" }}>
-              TutorAI
+            <span
+              style={{
+                color: "var(--text)",
+                fontSize: 15,
+                fontWeight: 900,
+                letterSpacing: "-0.3px",
+                fontFamily: "var(--font-sora, Fraunces, serif)",
+              }}
+            >
+              <span> Tutor</span>
+              <span style={{ color: "#059669" }}>AI</span>
             </span>
           </Link>
           <div className="flex items-center gap-1.5">
@@ -183,20 +205,20 @@ export function TeacherShell({ children, fullName, unreviewedFlagsCount, role }:
 
         <div className="md:hidden">
           <MobileNav open={mobileOpen} onClose={() => setMobileOpen(false)} title="TutorAI">
-            <div className="mx-4 mb-4 rounded-2xl p-4" style={{ background: "rgba(255,255,255,0.04)", border: "0.5px solid var(--border)" }}>
-              <p className="text-sm font-semibold" style={{ color: "#fff" }}>{fullName}</p>
+            <div className="mx-4 mb-4 rounded-2xl p-4" style={{ background: "rgba(15,23,42,0.04)", border: "0.5px solid var(--border)" }}>
+              <p className="text-sm font-semibold" style={{ color: "var(--text)" }}>{fullName}</p>
               <p className="mb-1 mt-2 text-xs" style={{ color: "var(--text-faint)" }}>Logged in as</p>
               <RoleBadge role={role} size="sm" />
             </div>
 
-            <p className="mb-2 px-4 text-xs font-semibold tracking-wider" style={{ color: "rgba(255,255,255,0.25)" }}>TOOLS</p>
+            <p className="mb-2 px-4 text-xs font-semibold tracking-wider" style={{ color: "var(--text-faint)" }}>TOOLS</p>
             <NavLinks
               links={TOOLS_LINKS}
               unreviewedFlagsCount={unreviewedFlagsCount}
               onNavigate={() => setMobileOpen(false)}
             />
 
-            <p className="mb-2 mt-6 px-4 text-xs font-semibold tracking-wider" style={{ color: "rgba(255,255,255,0.25)" }}>CLASSROOM</p>
+            <p className="mb-2 mt-6 px-4 text-xs font-semibold tracking-wider" style={{ color: "var(--text-faint)" }}>CLASSROOM</p>
             <NavLinks
               links={CLASSROOM_LINKS}
               unreviewedFlagsCount={unreviewedFlagsCount}

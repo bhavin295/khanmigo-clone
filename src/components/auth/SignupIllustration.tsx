@@ -45,7 +45,7 @@ export function SignupIllustration() {
           height: 60,
           transform: 'translate(-50%,-50%)',
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(124,58,237,0.4) 0%, transparent 70%)',
+          background: 'rgba(124,58,237,0.22)',
           filter: 'blur(6px)',
         }}
       />
@@ -59,7 +59,8 @@ export function SignupIllustration() {
           height: 52,
           transform: 'translate(-50%,-50%)',
           borderRadius: '50%',
-          background: 'linear-gradient(135deg,#7C3AED,#2563EB)',
+          background: 'var(--grad)',
+          color: '#fff',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',

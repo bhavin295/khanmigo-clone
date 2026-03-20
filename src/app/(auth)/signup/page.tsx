@@ -18,19 +18,19 @@ const ROLE_CONFIG: Record<Role, {
   activeIcon: string
 }> = {
   student: {
-    icon: '🎒',
+    icon: '📘',
     label: 'Student',
     sub: "I'm here to learn",
     activeRing: 'border-violet-500',
-    activeText: 'text-violet-200',
+    activeText: 'text-violet-800',
     activeIcon: 'bg-[rgba(124,58,237,0.18)]',
   },
   teacher: {
-    icon: '👩‍🏫',
+    icon: '🧑‍🏫',
     label: 'Teacher',
     sub: 'I teach students',
     activeRing: 'border-emerald-500',
-    activeText: 'text-emerald-200',
+    activeText: 'text-emerald-800',
     activeIcon: 'bg-[rgba(5,150,105,0.18)]',
   },
   parent: {
@@ -38,7 +38,7 @@ const ROLE_CONFIG: Record<Role, {
     label: 'Parent',
     sub: 'I monitor my child',
     activeRing: 'border-amber-500',
-    activeText: 'text-amber-200',
+    activeText: 'text-amber-800',
     activeIcon: 'bg-[rgba(217,119,6,0.18)]',
   },
 }
@@ -50,7 +50,7 @@ const ROLE_REDIRECT: Record<Role, string> = {
 }
 
 export default function SignupPage() {
-  const [selectedRole, setSelectedRole] = useState<Role | null>(null)
+  const [selectedRole, setSelectedRole] = useState<Role | null>('student')
   const [fullName, setFullName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -159,11 +159,11 @@ export default function SignupPage() {
           style={{
             background: 'var(--bg-card)',
             border: '0.5px solid var(--border-md)',
-            boxShadow: '0 24px 60px rgba(0,0,0,0.4)',
+            boxShadow: 'none',
           }}
         >
           <div className="mb-5 text-6xl">📬</div>
-          <h2 className="text-2xl font-bold" style={{ color: '#fff' }}>Check your inbox!</h2>
+          <h2 className="text-2xl font-bold" style={{ color: 'var(--text)' }}>Check your inbox!</h2>
           <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>
             We sent a confirmation link to
             <br />
@@ -214,11 +214,15 @@ export default function SignupPage() {
 
           <p className="text-xs mt-6" style={{ color: 'var(--text-faint)' }}>
             Didn&apos;t receive it? Check your spam folder or{' '}
-            <button onClick={() => { setSubmitted(false); setLoading(false) }} className="underline" style={{ color: 'rgba(139,92,246,0.8)' }}>
+            <button
+              onClick={() => { setSubmitted(false); setLoading(false) }}
+              className="underline"
+              style={{ color: '#6D28D9', fontWeight: 800 }}
+            >
               try again
             </button>
           </p>
-          <Link href="/login" className="block mt-4 text-sm font-medium" style={{ color: 'rgba(139,92,246,0.9)' }}>
+          <Link href="/login" className="block mt-4 text-sm font-medium" style={{ color: '#5B21B6', fontWeight: 800 }}>
             Already confirmed? Sign in -&gt;
           </Link>
         </div>
@@ -227,55 +231,130 @@ export default function SignupPage() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col lg:flex-row" style={{ background: 'var(--bg-base)' }}>
-      <div className="hidden lg:flex lg:w-[44%] flex-col relative overflow-hidden" style={{ background: '#0F172A', minHeight: '100vh' }}>
-        <div
-          style={{
-            position: 'absolute', inset: 0, pointerEvents: 'none',
-            backgroundImage: 'radial-gradient(circle, rgba(139,92,246,0.1) 1px, transparent 1px)',
-            backgroundSize: '28px 28px',
-          }}
-        />
-        <div style={{ position: 'absolute', width: 400, height: 400, borderRadius: '50%', background: 'rgba(109,40,217,0.15)', filter: 'blur(90px)', top: -120, right: -80, pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', width: 300, height: 300, borderRadius: '50%', background: 'rgba(37,99,235,0.1)', filter: 'blur(70px)', bottom: -60, left: -60, pointerEvents: 'none' }} />
+    <div className="h-screen overflow-hidden flex flex-col lg:flex-row" style={{ background: 'var(--bg-base)' }}>
+      <div
+        className="hidden lg:flex"
+        style={{
+          width: '45%',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+          position: 'relative',
+          overflow: 'hidden',
+          background: '#EFE2CC',
+          borderRight: '1px solid rgba(15,23,42,0.14)',
+          minHeight: '100vh',
+        }}
+      >
+        <div style={{ position: 'relative', width: '100%', height: '100%', padding: '44px 48px' }}>
+          <div
+            style={{
+              position: 'absolute',
+              inset: 0,
+              pointerEvents: 'none',
+              background: 'none',
+            }}
+          />
 
-        <div className="relative z-10 flex h-full flex-col" style={{ padding: '40px 36px' }}>
-          <div>
-            <Link href="/" className="mb-0 flex items-center gap-3 no-underline">
-              <div style={{ width: 36, height: 36, borderRadius: 10, background: 'var(--grad)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 16, boxShadow: '0 0 16px rgba(124,58,237,0.35)' }}>
+          <div
+            style={{
+              position: 'absolute',
+              width: 360,
+              height: 360,
+              borderRadius: 38,
+              background: 'rgba(167,139,250,0.12)',
+              border: '1px solid rgba(167,139,250,0.28)',
+              transform: 'rotate(-18deg)',
+              top: -90,
+              right: -150,
+              pointerEvents: 'none',
+            }}
+          />
+
+          <div
+            style={{
+              position: 'absolute',
+              width: 300,
+              height: 300,
+              borderRadius: 34,
+              background: 'rgba(45,212,191,0.12)',
+              border: '1px solid rgba(45,212,191,0.28)',
+              transform: 'rotate(14deg)',
+              bottom: -110,
+              left: -120,
+              pointerEvents: 'none',
+            }}
+          />
+          <div
+            style={{
+              position: 'absolute',
+              width: 220,
+              height: 220,
+              borderRadius: 28,
+              background: 'rgba(96,165,250,0.12)',
+              border: '1px solid rgba(96,165,250,0.30)',
+              transform: 'rotate(-12deg)',
+              top: '46%',
+              right: -80,
+              pointerEvents: 'none',
+            }}
+          />
+          <div
+            style={{
+              position: 'absolute',
+              width: 160,
+              height: 160,
+              borderRadius: 24,
+              background: 'rgba(255,189,46,0.12)',
+              border: '1px solid rgba(255,189,46,0.32)',
+              transform: 'rotate(24deg)',
+              top: '22%',
+              left: -70,
+              pointerEvents: 'none',
+            }}
+          />
+
+          <div style={{ position: 'relative', zIndex: 1, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+              <div style={{ width: 38, height: 38, borderRadius: 11, background: 'rgba(167,139,250,0.18)', border: '0.5px solid rgba(167,139,250,0.30)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 17 }}>
                 🎓
               </div>
-              <span style={{ color: '#fff', fontSize: 18, fontWeight: 700, fontFamily: 'var(--font-sora, Sora, sans-serif)', letterSpacing: '-0.3px' }}>
-                TutorAI
+              <span style={{ fontSize: 21, fontWeight: 900, fontFamily: 'var(--font-sora, Fraunces, serif)', letterSpacing: '-0.4px' }}>
+                <span style={{ color: 'var(--text)' }}>Tutor</span>
+                <span style={{ color: '#059669' }}>AI</span>
               </span>
-            </Link>
-          </div>
+            </div>
 
-          <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', paddingTop: 40, paddingBottom: 40 }}>
-            <SignupIllustration />
-            <h2 style={{ color: '#fff', fontSize: 24, fontWeight: 800, fontFamily: 'var(--font-sora, Sora, sans-serif)', letterSpacing: '-0.6px', textAlign: 'center', marginBottom: 10 }}>
-              Learn without limits.
-            </h2>
-            <p style={{ color: 'rgba(255,255,255,0.38)', fontSize: 14, lineHeight: 1.65, maxWidth: 240, textAlign: 'center' }}>
-              AI that builds your thinking — not just gives you the answer.
-            </p>
+            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '24px 0', textAlign: 'center' }}>
+              <SignupIllustration />
+              <h2 style={{ marginTop: 14, color: 'var(--text)', fontFamily: "var(--font-sora, 'Sora', sans-serif)", fontSize: 26, fontWeight: 900, letterSpacing: '-0.6px' }}>
+                Learn smarter with AI guidance.
+              </h2>
+              <p style={{ marginTop: 8, color: 'var(--text-muted)', fontSize: 14, lineHeight: 1.7, maxWidth: 320 }}>
+                Personalized tutoring for students, powerful tools for teachers, and peace of mind for parents.
+              </p>
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="flex-1 flex items-center justify-center min-h-screen overflow-y-auto" style={{ background: 'var(--bg-surface)' }}>
-        <div className="w-full max-w-lg px-6 py-10 md:px-10">
-          <div className="auth-card-enter rounded-3xl px-6 py-8 md:px-10" style={{ background: 'var(--bg-card)', border: '0.5px solid var(--border-md)', boxShadow: '0 24px 60px rgba(0,0,0,0.4)' }}>
-            <Link href="/" className="mb-8 flex items-center gap-2 no-underline lg:hidden">
-              <div style={{ width: 32, height: 32, borderRadius: 9, background: 'var(--grad)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 15 }}>🎓</div>
-              <span className="font-bold text-lg" style={{ color: '#fff' }}>TutorAI</span>
-            </Link>
+      <div className="flex-1 flex items-center justify-center h-screen overflow-hidden" style={{ background: 'var(--bg-surface)' }}>
+        <div className="w-full max-w-lg px-6 py-6 md:px-10">
+          <div className="auth-card-enter rounded-3xl px-6 py-6 md:px-10" style={{ background: 'var(--bg-card)', border: 'none', boxShadow: 'none', textAlign: 'center' }}>
+            <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', marginBottom: 32 }}>
+              <Link
+                href="/"
+                style={{ display: 'inline-flex', alignItems: 'center', gap: 9, textDecoration: 'none', color: '#6D28D9', fontWeight: 800, fontSize: 13, background: 'rgba(167,139,250,0.14)', border: '0.5px solid rgba(167,139,250,0.32)', borderRadius: 999, padding: '8px 13px' }}
+              >
+                <span style={{ width: 20, height: 20, borderRadius: '50%', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(167,139,250,0.24)', lineHeight: 1 }}>←</span>
+                Back to Home
+              </Link>
+            </div>
 
-            <h1 className="text-3xl font-bold tracking-tight" style={{ color: '#fff' }}>Create your account</h1>
-            <p className="text-sm mt-2 mb-8" style={{ color: 'var(--text-muted)' }}>Start learning smarter today -- it&apos;s free.</p>
+            <h1 className="text-3xl font-bold tracking-tight" style={{ color: 'var(--text)', textAlign: 'left' }}>Create your account</h1>
+            <p className="text-sm mt-2 mb-8" style={{ color: 'var(--text-muted)', textAlign: 'left' }}>Start learning smarter today -- it&apos;s free.</p>
 
-            <div className="mb-6">
-              <p className="text-sm font-semibold mb-3" style={{ color: roleError ? 'rgba(239,68,68,0.9)' : 'rgba(255,255,255,0.7)' }}>
+            <div className="mb-6" style={{ textAlign: 'left' }}>
+              <p className="text-sm font-semibold mb-3" style={{ color: roleError ? 'rgba(239,68,68,0.9)' : 'var(--text-muted)' }}>
                 I am a...{roleError ? <span className="font-normal ml-1" style={{ color: 'rgba(252,165,165,1)' }}>(please select one)</span> : null}
               </p>
 
@@ -293,17 +372,26 @@ export default function SignupPage() {
                       key={role}
                       type="button"
                       onClick={() => handleRoleSelect(role)}
-                      className={`flex flex-col items-center gap-2 p-4 rounded-2xl border-2 cursor-pointer transition-all duration-150 select-none text-center ${isActive ? `${cfg.activeRing} shadow-sm scale-[1.02]` : 'border-[rgba(255,255,255,0.1)] hover:border-[rgba(255,255,255,0.18)]'}`}
-                      style={{ background: isActive ? activeBackground : 'rgba(255,255,255,0.04)' }}
+                      className={`flex flex-col items-center gap-2 p-4 rounded-2xl border-2 cursor-pointer transition-all duration-150 select-none text-center ${isActive ? `${cfg.activeRing} shadow-sm scale-[1.02]` : 'border-[rgba(15,23,42,0.1)] hover:border-[rgba(15,23,42,0.18)]'}`}
+                      style={{
+                        background: isActive ? activeBackground : '#FFFFFF',
+                        boxShadow: isActive ? '0 12px 28px rgba(15,23,42,0.11)' : '0 10px 24px rgba(15,23,42,0.08)',
+                        borderColor: isActive ? undefined : 'rgba(15,23,42,0.10)',
+                      }}
                     >
-                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-2xl transition-colors duration-150 ${isActive ? cfg.activeIcon : 'bg-[rgba(255,255,255,0.08)]'}`}>
+                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-2xl transition-colors duration-150 ${isActive ? cfg.activeIcon : 'bg-[rgba(15,23,42,0.04)]'}`}>
                         {cfg.icon}
                       </div>
                       <div>
-                        <p className={`text-sm font-semibold transition-colors duration-150 ${isActive ? cfg.activeText : 'text-white/75'}`}>
+                        <p className={`text-sm font-semibold transition-colors duration-150 ${isActive ? cfg.activeText : 'text-[rgba(15,23,42,0.72)]'}`}>
                           {cfg.label}
                         </p>
-                        <p className="text-xs text-white/25 mt-0.5 leading-tight">{cfg.sub}</p>
+                        <p
+                          className="text-xs mt-0.5 leading-tight transition-colors duration-150"
+                          style={{ color: isActive ? 'rgba(15,23,42,0.68)' : 'rgba(15,23,42,0.45)' }}
+                        >
+                          {cfg.sub}
+                        </p>
                       </div>
                     </button>
                   )
@@ -311,9 +399,9 @@ export default function SignupPage() {
               </div>
             </div>
 
-            <form onSubmit={handleSubmit} noValidate className="space-y-4">
+            <form onSubmit={handleSubmit} noValidate className="space-y-4 text-left">
               <div>
-                <label className="block text-xs font-medium mb-1.5 uppercase tracking-[0.5px]" style={{ color: 'rgba(255,255,255,0.6)' }}>
+                <label className="block text-xs font-medium mb-1.5 uppercase tracking-[0.5px]" style={{ color: 'var(--text-muted)' }}>
                   Full name
                 </label>
                 <input
@@ -322,13 +410,13 @@ export default function SignupPage() {
                   onChange={(e) => setFullName(e.target.value)}
                   placeholder="Alex Johnson"
                   autoComplete="name"
-                  className="auth-input w-full rounded-xl px-4 py-3 text-sm placeholder:text-white/25 focus:outline-none"
-                  style={{ background: 'rgba(255,255,255,0.06)', border: '0.5px solid rgba(255,255,255,0.1)', color: '#fff' }}
+                  className="auth-input w-full rounded-xl px-4 py-3 text-sm placeholder:text-[rgba(15,23,42,0.25)] focus:outline-none"
+                  style={{ background: 'var(--bg-input)', border: '0.5px solid var(--border)', color: 'var(--text)' }}
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-medium mb-1.5 uppercase tracking-[0.5px]" style={{ color: 'rgba(255,255,255,0.6)' }}>
+                <label className="block text-xs font-medium mb-1.5 uppercase tracking-[0.5px]" style={{ color: 'var(--text-muted)' }}>
                   Email address
                 </label>
                 <input
@@ -337,13 +425,13 @@ export default function SignupPage() {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@example.com"
                   autoComplete="email"
-                  className="auth-input w-full rounded-xl px-4 py-3 text-sm placeholder:text-white/25 focus:outline-none"
-                  style={{ background: 'rgba(255,255,255,0.06)', border: '0.5px solid rgba(255,255,255,0.1)', color: '#fff' }}
+                  className="auth-input w-full rounded-xl px-4 py-3 text-sm placeholder:text-[rgba(15,23,42,0.25)] focus:outline-none"
+                  style={{ background: 'var(--bg-input)', border: '0.5px solid var(--border)', color: 'var(--text)' }}
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-medium mb-1.5 uppercase tracking-[0.5px]" style={{ color: 'rgba(255,255,255,0.6)' }}>
+                <label className="block text-xs font-medium mb-1.5 uppercase tracking-[0.5px]" style={{ color: 'var(--text-muted)' }}>
                   Password
                 </label>
                 <div className="relative">
@@ -353,10 +441,10 @@ export default function SignupPage() {
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Min. 8 characters"
                     autoComplete="new-password"
-                    className="auth-input w-full rounded-xl px-4 py-3 pr-11 text-sm placeholder:text-white/25 focus:outline-none"
-                    style={{ background: 'rgba(255,255,255,0.06)', border: '0.5px solid rgba(255,255,255,0.1)', color: '#fff' }}
+                    className="auth-input w-full rounded-xl px-4 py-3 pr-11 text-sm placeholder:text-[rgba(15,23,42,0.25)] focus:outline-none"
+                    style={{ background: 'var(--bg-input)', border: '0.5px solid var(--border)', color: 'var(--text)' }}
                   />
-                  <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-1/2 -translate-y-1/2 transition-colors" style={{ color: 'rgba(255,255,255,0.35)' }}>
+                  <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-1/2 -translate-y-1/2 transition-colors" style={{ color: 'var(--text-muted)' }}>
                     {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
                   </button>
                 </div>
@@ -387,17 +475,17 @@ export default function SignupPage() {
                 )}
               </button>
 
-              <p className="text-center text-xs" style={{ color: 'rgba(255,255,255,0.3)' }}>
+              <p className="text-center text-xs" style={{ color: 'var(--text-faint)' }}>
                 By signing up you agree to our{' '}
-                <Link href="/terms" className="underline" style={{ color: 'rgba(139,92,246,0.8)' }}>Terms</Link>
+                <Link href="/terms" className="underline" style={{ color: '#6D28D9', fontWeight: 800 }}>Terms</Link>
                 {' '}and{' '}
-                <Link href="/privacy" className="underline" style={{ color: 'rgba(139,92,246,0.8)' }}>Privacy Policy</Link>
+                <Link href="/privacy" className="underline" style={{ color: '#6D28D9', fontWeight: 800 }}>Privacy Policy</Link>
               </p>
             </form>
 
-            <p className="text-center mt-6 text-sm" style={{ color: 'rgba(255,255,255,0.4)' }}>
+            <p className="text-center mt-6 text-sm" style={{ color: 'var(--text-muted)' }}>
               Already have an account?{' '}
-              <Link href="/login" className="font-semibold" style={{ color: 'rgba(139,92,246,0.9)' }}>
+              <Link href="/login" className="font-semibold" style={{ color: '#5B21B6', fontWeight: 800 }}>
                 Sign in
               </Link>
             </p>

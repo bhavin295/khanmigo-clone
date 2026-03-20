@@ -51,16 +51,16 @@ export function ChatInput({
       <div className="mx-auto flex max-w-4xl flex-col gap-3">
         <div className="flex items-center justify-between gap-3">
           <div className="flex items-center gap-2 overflow-x-auto">
-            <button type="button" onClick={() => setShowImageSolver((value) => !value)} className="inline-flex shrink-0 items-center gap-2 rounded-full border px-3 py-2 text-sm" style={{ background: 'rgba(255,255,255,0.05)', borderColor: 'rgba(255,255,255,0.1)', color: 'var(--text-muted)' }}>
+            <button type="button" onClick={() => setShowImageSolver((value) => !value)} className="inline-flex shrink-0 items-center gap-2 rounded-full border px-3 py-2 text-sm" style={{ background: 'rgba(15,23,42,0.05)', borderColor: 'rgba(15,23,42,0.12)', color: 'var(--text-muted)' }}>
               <Camera className="h-4 w-4" />
               Image Solver
             </button>
-            <span className="inline-flex shrink-0 items-center gap-2 rounded-full border px-3 py-2 text-xs font-medium" style={{ background: 'rgba(124,58,237,0.12)', borderColor: 'rgba(124,58,237,0.3)', color: '#C4B5FD' }}>
+            <span className="inline-flex shrink-0 items-center gap-2 rounded-full border px-3 py-2 text-xs font-medium" style={{ background: 'rgba(167,139,250,0.18)', borderColor: 'rgba(167,139,250,0.35)', color: '#6D28D9', fontWeight: 900 }}>
               {difficultyLabel}
             </span>
           </div>
           {onToggleFeatures ? (
-            <button type="button" onClick={onToggleFeatures} className="inline-flex h-10 w-10 items-center justify-center rounded-2xl border" style={{ background: 'rgba(255,255,255,0.05)', borderColor: 'rgba(255,255,255,0.1)', color: 'var(--text-muted)' }}>
+            <button type="button" onClick={onToggleFeatures} className="inline-flex h-10 w-10 items-center justify-center rounded-2xl border" style={{ background: 'rgba(15,23,42,0.05)', borderColor: 'rgba(15,23,42,0.12)', color: 'var(--text-muted)' }}>
               <Grid2x2 className="h-4 w-4" />
             </button>
           ) : null}
@@ -71,7 +71,7 @@ export function ChatInput({
         ) : null}
 
         <div className="flex items-end gap-3">
-          <div className="flex-1 rounded-2xl px-4 py-3" style={{ background: 'rgba(255,255,255,0.05)', border: '0.5px solid rgba(255,255,255,0.1)' }}>
+          <div className="flex-1 rounded-2xl px-4 py-3" style={{ background: 'rgba(15,23,42,0.05)', border: '0.5px solid rgba(15,23,42,0.12)' }}>
             <textarea
               ref={textareaRef}
               rows={1}
@@ -79,7 +79,7 @@ export function ChatInput({
               onChange={onChange}
               onKeyDown={onKeyDown}
               placeholder="Ask your tutor anything..."
-              className="min-h-[44px] max-h-[120px] w-full resize-none bg-transparent text-sm text-white placeholder:text-white/25 focus:outline-none"
+              className="min-h-[44px] max-h-[120px] w-full resize-none bg-transparent text-sm text-[var(--text)] placeholder:text-[rgba(15,23,42,0.35)] focus:outline-none"
             />
           </div>
           <VoiceInput onTranscript={onTranscript} disabled={disabled} />
@@ -87,7 +87,7 @@ export function ChatInput({
             type="button"
             onClick={() => setShowImageSolver((value) => !value)}
             className="flex h-11 w-11 items-center justify-center rounded-2xl border"
-            style={{ background: 'rgba(255,255,255,0.05)', borderColor: 'rgba(255,255,255,0.1)', color: 'var(--text-muted)' }}
+            style={{ background: 'rgba(15,23,42,0.05)', borderColor: 'rgba(15,23,42,0.12)', color: 'var(--text-muted)' }}
           >
             <Camera className="h-4 w-4" />
           </button>
@@ -104,7 +104,7 @@ export function ChatInput({
         </div>
 
         <div className="flex items-center justify-between gap-3 text-xs">
-          <p style={{ color: 'rgba(255,255,255,0.2)' }}>Shift+Enter for new line</p>
+          <p style={{ color: 'var(--text-faint)' }}>Shift+Enter for new line</p>
           {remaining < 5 ? <p style={{ color: '#FDE68A' }}>{remaining} messages left today</p> : null}
         </div>
       </div>

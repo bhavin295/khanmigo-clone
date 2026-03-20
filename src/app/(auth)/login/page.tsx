@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { createClient } from '@/lib/supabase/client'
 import { Eye, EyeOff } from 'lucide-react'
+import { SignupIllustration } from '@/components/auth/SignupIllustration'
 
 function LoginForm() {
   const [email, setEmail] = useState('')
@@ -45,7 +46,8 @@ function LoginForm() {
         .select('role')
         .eq('id', data.user.id)
         .single()
-      router.push(!profile?.role ? '/onboarding' : nextPath)
+      const destination = !profile?.role ? '/onboarding' : nextPath
+      router.push(destination)
     }
     setLoading(false)
   }
@@ -83,7 +85,8 @@ function LoginForm() {
           justifyContent: 'space-between',
           position: 'relative',
           overflow: 'hidden',
-          background: '#0F172A',
+          background: '#EFE2CC',
+          borderRight: '1px solid rgba(15,23,42,0.14)',
           padding: '44px 48px',
         }}
       >
@@ -92,8 +95,7 @@ function LoginForm() {
             position: 'absolute',
             inset: 0,
             pointerEvents: 'none',
-            backgroundImage: 'radial-gradient(circle, rgba(139,92,246,0.12) 1px, transparent 1px)',
-            backgroundSize: '26px 26px',
+            background: 'none',
           }}
         />
 
@@ -102,11 +104,12 @@ function LoginForm() {
             position: 'absolute',
             width: 360,
             height: 360,
-            borderRadius: '50%',
-            background: 'rgba(109,40,217,0.2)',
-            filter: 'blur(80px)',
-            top: -100,
-            right: -80,
+            borderRadius: 38,
+            background: 'rgba(167,139,250,0.12)',
+            border: '1px solid rgba(167,139,250,0.28)',
+            transform: 'rotate(-18deg)',
+            top: -90,
+            right: -150,
             pointerEvents: 'none',
           }}
         />
@@ -114,203 +117,86 @@ function LoginForm() {
         <div
           style={{
             position: 'absolute',
-            width: 280,
-            height: 280,
-            borderRadius: '50%',
-            background: 'rgba(37,99,235,0.15)',
-            filter: 'blur(70px)',
-            bottom: -60,
-            left: -60,
+            width: 300,
+            height: 300,
+            borderRadius: 34,
+            background: 'rgba(45,212,191,0.12)',
+            border: '1px solid rgba(45,212,191,0.28)',
+            transform: 'rotate(14deg)',
+            bottom: -110,
+            left: -120,
+            pointerEvents: 'none',
+          }}
+        />
+        <div
+          style={{
+            position: 'absolute',
+            width: 220,
+            height: 220,
+            borderRadius: 28,
+            background: 'rgba(96,165,250,0.12)',
+            border: '1px solid rgba(96,165,250,0.30)',
+            transform: 'rotate(-12deg)',
+            top: '46%',
+            right: -80,
+            pointerEvents: 'none',
+          }}
+        />
+        <div
+          style={{
+            position: 'absolute',
+            width: 160,
+            height: 160,
+            borderRadius: 24,
+            background: 'rgba(255,189,46,0.12)',
+            border: '1px solid rgba(255,189,46,0.32)',
+            transform: 'rotate(24deg)',
+            top: '22%',
+            left: -70,
             pointerEvents: 'none',
           }}
         />
 
-        <div style={{ position: 'relative', zIndex: 1 }}>
-          <Link href="/" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
+        <div
+          style={{
+            position: 'relative',
+            zIndex: 1,
+            height: '100%',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
             <div
               style={{
                 width: 38,
                 height: 38,
                 borderRadius: 11,
-                background: 'linear-gradient(135deg, #7C3AED, #2563EB)',
+                background: 'rgba(167,139,250,0.18)',
+                border: '0.5px solid rgba(167,139,250,0.30)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 fontSize: 17,
-                boxShadow: '0 0 18px rgba(124,58,237,0.4)',
               }}
             >
               🎓
             </div>
-            <span
-              style={{
-                color: '#fff',
-                fontFamily: "var(--font-sora, 'Sora', sans-serif)",
-                fontSize: 19,
-                fontWeight: 800,
-                letterSpacing: '-0.4px',
-              }}
-            >
-              TutorAI
+            <span style={{ fontSize: 21, fontWeight: 900, fontFamily: 'var(--font-sora, Fraunces, serif)', letterSpacing: '-0.4px' }}>
+              <span style={{ color: 'var(--text)' }}>Tutor</span>
+              <span style={{ color: '#059669' }}>AI</span>
             </span>
-          </Link>
-        </div>
+          </div>
 
-        <div style={{ position: 'relative', zIndex: 1 }}>
-          <h2
-            style={{
-              color: '#fff',
-              fontFamily: "var(--font-sora, 'Sora', sans-serif)",
-              fontSize: 34,
-              fontWeight: 800,
-              lineHeight: 1.2,
-              letterSpacing: '-0.8px',
-              marginBottom: 14,
-            }}
-          >
-            Learn smarter
-            <br />
-            with AI guidance.
-          </h2>
-
-          <p
-            style={{
-              color: 'rgba(255,255,255,0.45)',
-              fontSize: 15,
-              lineHeight: 1.7,
-              marginBottom: 36,
-              maxWidth: 320,
-            }}
-          >
-            Personalized tutoring for students, powerful tools for teachers, and peace of mind for
-            parents.
-          </p>
-
-          {[
-            { icon: '🎒', title: 'Students', desc: 'Step-by-step Socratic AI guidance' },
-            { icon: '👩‍🏫', title: 'Teachers', desc: 'Lesson plans and quizzes in minutes' },
-            { icon: '👨‍👩‍👧', title: 'Parents', desc: 'Full visibility into progress' },
-          ].map((item) => (
-            <div
-              key={item.title}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 14,
-                marginBottom: 16,
-              }}
-            >
-              <div
-                style={{
-                  width: 38,
-                  height: 38,
-                  borderRadius: 10,
-                  flexShrink: 0,
-                  background: 'rgba(255,255,255,0.07)',
-                  border: '0.5px solid rgba(255,255,255,0.1)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: 17,
-                }}
-              >
-                {item.icon}
-              </div>
-
-              <div>
-                <p
-                  style={{
-                    color: 'rgba(255,255,255,0.88)',
-                    fontSize: 14,
-                    fontWeight: 600,
-                    margin: 0,
-                  }}
-                >
-                  {item.title}
-                </p>
-                <p
-                  style={{
-                    color: 'rgba(255,255,255,0.38)',
-                    fontSize: 12,
-                    margin: '2px 0 0',
-                    lineHeight: 1.5,
-                  }}
-                >
-                  {item.desc}
-                </p>
-              </div>
-
-              <div
-                style={{
-                  marginLeft: 'auto',
-                  width: 20,
-                  height: 20,
-                  borderRadius: '50%',
-                  background: 'rgba(52,211,153,0.15)',
-                  border: '0.5px solid rgba(52,211,153,0.35)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0,
-                }}
-              >
-                <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
-                  <path
-                    d="M2 6l3 3 5-5"
-                    stroke="#34D399"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div style={{ position: 'relative', zIndex: 1 }}>
-          <div
-            style={{
-              height: '0.5px',
-              background: 'rgba(255,255,255,0.08)',
-              marginBottom: 20,
-            }}
-          />
-          <div style={{ display: 'flex', gap: 28, alignItems: 'center' }}>
-            {[
-              { value: '10k+', label: 'Learners' },
-              { value: '4', label: 'Subjects' },
-              { value: 'Free', label: 'To start' },
-            ].map((stat, i, arr) => (
-              <div key={stat.label} style={{ display: 'flex', alignItems: 'center', gap: 28 }}>
-                <div style={{ textAlign: 'center' }}>
-                  <p
-                    style={{
-                      color: '#fff',
-                      fontSize: 18,
-                      fontWeight: 700,
-                      fontFamily: "var(--font-sora, 'Sora', sans-serif)",
-                      margin: 0,
-                      letterSpacing: '-0.3px',
-                    }}
-                  >
-                    {stat.value}
-                  </p>
-                  <p
-                    style={{
-                      color: 'rgba(255,255,255,0.3)',
-                      fontSize: 10,
-                      margin: '3px 0 0',
-                    }}
-                  >
-                    {stat.label}
-                  </p>
-                </div>
-                {i < arr.length - 1 ? (
-                  <div style={{ width: '0.5px', height: 28, background: 'rgba(255,255,255,0.1)' }} />
-                ) : null}
-              </div>
-            ))}
+          <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '24px 0', textAlign: 'center' }}>
+            <SignupIllustration />
+            <h2 style={{ marginTop: 14, color: 'var(--text)', fontFamily: "var(--font-sora, 'Sora', sans-serif)", fontSize: 26, fontWeight: 900, letterSpacing: '-0.6px' }}>
+              Learn smarter with AI guidance.
+            </h2>
+            <p style={{ marginTop: 8, color: 'var(--text-muted)', fontSize: 14, lineHeight: 1.7, maxWidth: 320 }}>
+              Personalized tutoring for students, powerful tools for teachers, and peace of mind for parents.
+            </p>
           </div>
         </div>
       </div>
@@ -328,44 +214,52 @@ function LoginForm() {
       >
         <div style={{ width: '100%', maxWidth: 400 }}>
           <div
-            className="flex lg:hidden"
             style={{
+              display: 'flex',
               alignItems: 'center',
-              gap: 9,
+              justifyContent: 'flex-start',
+              gap: 10,
               marginBottom: 32,
+              width: '100%',
             }}
           >
-            <Link href="/" style={{ display: 'inline-flex', alignItems: 'center', gap: 9, textDecoration: 'none' }}>
-              <div
-                style={{
-                  width: 34,
-                  height: 34,
-                  borderRadius: 10,
-                  background: 'linear-gradient(135deg, #7C3AED, #2563EB)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: 16,
-                }}
-              >
-                🎓
-              </div>
+            <Link
+              href="/"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 9,
+                textDecoration: 'none',
+                color: '#6D28D9',
+                fontWeight: 800,
+                fontSize: 13,
+                background: 'rgba(167,139,250,0.14)',
+                border: '0.5px solid rgba(167,139,250,0.32)',
+                borderRadius: 999,
+                padding: '8px 13px',
+              }}
+            >
               <span
                 style={{
-                  color: '#fff',
-                  fontFamily: "var(--font-sora, 'Sora', sans-serif)",
-                  fontSize: 18,
-                  fontWeight: 800,
+                  width: 20,
+                  height: 20,
+                  borderRadius: '50%',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  background: 'rgba(167,139,250,0.24)',
+                  lineHeight: 1,
                 }}
               >
-                TutorAI
+                ←
               </span>
+              Back to Home
             </Link>
           </div>
 
           <h1
             style={{
-              color: '#fff',
+              color: 'var(--text)',
               fontFamily: "var(--font-sora, 'Sora', sans-serif)",
               fontSize: 28,
               fontWeight: 800,
@@ -412,16 +306,16 @@ function LoginForm() {
               alignItems: 'center',
               justifyContent: 'center',
               gap: 10,
-              background: 'rgba(255,255,255,0.04)',
-              border: '0.5px solid rgba(255,255,255,0.1)',
+              background: '#FFFFFF',
+              border: '0.5px solid var(--border)',
               borderRadius: 12,
               padding: '12px 16px',
-              color: '#fff',
+              color: 'var(--text)',
               fontSize: 14,
               fontWeight: 600,
               cursor: googleLoading ? 'not-allowed' : 'pointer',
               opacity: googleLoading ? 0.7 : 1,
-              boxShadow: '0 8px 24px rgba(0,0,0,0.24)',
+              boxShadow: '0 10px 24px rgba(15,23,42,0.12)',
               marginBottom: 20,
               transition: 'all 0.15s',
               fontFamily: "var(--font-dm, 'DM Sans', sans-serif)",
@@ -451,7 +345,7 @@ function LoginForm() {
               marginBottom: 20,
             }}
           >
-            <div style={{ flex: 1, height: '0.5px', background: 'rgba(255,255,255,0.08)' }} />
+            <div style={{ flex: 1, height: '0.5px', background: 'var(--border)' }} />
             <span
               style={{
                 color: 'var(--text-faint)',
@@ -463,7 +357,7 @@ function LoginForm() {
             >
               or sign in with email
             </span>
-            <div style={{ flex: 1, height: '0.5px', background: 'rgba(255,255,255,0.08)' }} />
+            <div style={{ flex: 1, height: '0.5px', background: 'var(--border)' }} />
           </div>
 
           <form onSubmit={handleEmailLogin} noValidate>
@@ -472,7 +366,7 @@ function LoginForm() {
                 <label
                   style={{
                     display: 'block',
-                    color: 'rgba(255,255,255,0.6)',
+                    color: 'var(--text-muted)',
                     fontSize: 13,
                     fontWeight: 500,
                     marginBottom: 6,
@@ -488,11 +382,11 @@ function LoginForm() {
                   autoComplete="email"
                   style={{
                     width: '100%',
-                    background: 'rgba(255,255,255,0.06)',
-                    border: '0.5px solid rgba(255,255,255,0.1)',
+                    background: 'var(--bg-input)',
+                    border: '0.5px solid var(--border)',
                     borderRadius: 11,
                     padding: '12px 14px',
-                    color: '#fff',
+                    color: 'var(--text)',
                     fontSize: 14,
                     outline: 'none',
                     transition: 'border-color 0.15s, box-shadow 0.15s',
@@ -501,12 +395,12 @@ function LoginForm() {
                   onFocus={(e) => {
                     e.target.style.borderColor = '#7C3AED'
                     e.target.style.boxShadow = '0 0 0 3px rgba(124,58,237,0.1)'
-                    e.target.style.background = 'rgba(255,255,255,0.08)'
+                    e.target.style.background = 'rgba(124,58,237,0.06)'
                   }}
                   onBlur={(e) => {
-                    e.target.style.borderColor = 'rgba(255,255,255,0.1)'
+                    e.target.style.borderColor = 'var(--border)'
                     e.target.style.boxShadow = 'none'
-                    e.target.style.background = 'rgba(255,255,255,0.06)'
+                    e.target.style.background = 'var(--bg-input)'
                   }}
                 />
               </div>
@@ -522,7 +416,7 @@ function LoginForm() {
                 >
                   <label
                     style={{
-                      color: 'rgba(255,255,255,0.6)',
+                      color: 'var(--text-muted)',
                       fontSize: 13,
                       fontWeight: 500,
                     }}
@@ -532,10 +426,10 @@ function LoginForm() {
                   <Link
                     href="/forgot-password"
                     style={{
-                      color: 'rgba(139,92,246,0.9)',
+                      color: '#5B21B6',
                       fontSize: 12,
                       textDecoration: 'none',
-                      fontWeight: 500,
+                      fontWeight: 800,
                     }}
                   >
                     Forgot password?
@@ -551,11 +445,11 @@ function LoginForm() {
                     autoComplete="current-password"
                     style={{
                       width: '100%',
-                      background: 'rgba(255,255,255,0.06)',
-                      border: '0.5px solid rgba(255,255,255,0.1)',
+                      background: 'var(--bg-input)',
+                      border: '0.5px solid var(--border)',
                       borderRadius: 11,
                       padding: '12px 44px 12px 14px',
-                      color: '#fff',
+                      color: 'var(--text)',
                       fontSize: 14,
                       outline: 'none',
                       transition: 'border-color 0.15s, box-shadow 0.15s',
@@ -564,12 +458,12 @@ function LoginForm() {
                     onFocus={(e) => {
                       e.target.style.borderColor = '#7C3AED'
                       e.target.style.boxShadow = '0 0 0 3px rgba(124,58,237,0.1)'
-                      e.target.style.background = 'rgba(255,255,255,0.08)'
+                      e.target.style.background = 'rgba(124,58,237,0.06)'
                     }}
                     onBlur={(e) => {
-                      e.target.style.borderColor = 'rgba(255,255,255,0.1)'
+                      e.target.style.borderColor = 'var(--border)'
                       e.target.style.boxShadow = 'none'
-                      e.target.style.background = 'rgba(255,255,255,0.06)'
+                      e.target.style.background = 'var(--bg-input)'
                     }}
                   />
                   <button
@@ -582,7 +476,7 @@ function LoginForm() {
                       transform: 'translateY(-50%)',
                       background: 'none',
                       border: 'none',
-                      color: 'rgba(255,255,255,0.35)',
+                      color: 'var(--text-muted)',
                       cursor: 'pointer',
                       padding: 0,
                       display: 'flex',
@@ -613,7 +507,7 @@ function LoginForm() {
                 disabled={loading}
                 style={{
                   width: '100%',
-                  background: loading ? '#374151' : 'linear-gradient(135deg, #7C3AED, #2563EB)',
+                  background: loading ? 'rgba(15,23,42,0.06)' : 'var(--grad)',
                   border: 'none',
                   borderRadius: 12,
                   padding: '13px 16px',
@@ -651,7 +545,7 @@ function LoginForm() {
             style={{
               textAlign: 'center',
               marginTop: 22,
-              color: 'rgba(255,255,255,0.4)',
+              color: 'var(--text-faint)',
               fontSize: 14,
             }}
           >
@@ -659,12 +553,12 @@ function LoginForm() {
             <Link
               href="/signup"
               style={{
-                color: 'rgba(139,92,246,0.9)',
-                fontWeight: 600,
+                color: '#5B21B6',
+                fontWeight: 800,
                 textDecoration: 'none',
               }}
             >
-              Sign up free
+              Sign up
             </Link>
           </p>
         </div>

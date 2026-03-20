@@ -25,7 +25,7 @@ export function SignOutButton() {
         type="button"
         onClick={handleSignOut}
         className="text-xs transition-colors"
-        style={{ color: "rgba(255,255,255,0.3)" }}
+        style={{ color: "var(--text-muted)" }}
       >
         Sign out
       </button>

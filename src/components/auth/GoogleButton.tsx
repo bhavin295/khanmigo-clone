@@ -39,8 +39,8 @@ export function GoogleButton({ label = "Continue with Google", variant = "defaul
 
   const isDark = variant === "dark";
   const buttonClassName = isDark
-    ? "w-full flex items-center justify-center gap-3 rounded-[14px] border border-white/10 bg-white/6 px-4 py-3 text-sm font-semibold text-white transition-all duration-150 ease-out hover:-translate-y-px hover:bg-white/10 active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60 disabled:transform-none"
-    : "w-full flex items-center justify-center gap-3 rounded-2xl border border-white/10 bg-white/6 px-4 py-3.5 text-sm font-medium text-white shadow-sm transition-all active:scale-[0.98] hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-60";
+    ? "w-full flex items-center justify-center gap-3 rounded-2xl border border-[rgba(15,23,42,0.12)] bg-[rgba(255,255,255,0.7)] px-4 py-3.5 text-sm font-medium text-[rgba(15,23,42,0.92)] shadow-sm transition-all active:scale-[0.98] hover:bg-[rgba(255,255,255,0.9)] disabled:cursor-not-allowed disabled:opacity-60"
+    : "w-full flex items-center justify-center gap-3 rounded-2xl border border-[rgba(15,23,42,0.12)] bg-[rgba(255,255,255,0.7)] px-4 py-3.5 text-sm font-medium text-[rgba(15,23,42,0.92)] shadow-sm transition-all active:scale-[0.98] hover:bg-[rgba(255,255,255,0.9)] disabled:cursor-not-allowed disabled:opacity-60";
 
   return (
     <div className="w-full">
@@ -50,7 +50,7 @@ export function GoogleButton({ label = "Continue with Google", variant = "defaul
         className={buttonClassName}
       >
         {loading ? (
-          <svg className="h-5 w-5 animate-spin text-white/60" viewBox="0 0 24 24" fill="none">
+          <svg className="h-5 w-5 animate-spin text-[rgba(15,23,42,0.45)]" viewBox="0 0 24 24" fill="none">
             <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/>
             <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.37 0 0 5.37 0 12h4z"/>
           </svg>

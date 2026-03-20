@@ -66,13 +66,13 @@ export function WritingCoach({ userId, conversationId }: { userId: string; conve
   return (
     <div className="mx-auto flex w-full max-w-5xl flex-col gap-4 p-4 md:p-6">
       <div className="flex items-center justify-between gap-3">
-        <h2 className="text-xl font-semibold" style={{ color: '#fff' }}>Writing Coach</h2>
+        <h2 className="text-xl font-semibold" style={{ color: 'var(--text)' }}>Writing Coach</h2>
         <button type="button" onClick={loadHistory} className="rounded-xl px-4 py-2 text-sm font-medium" style={{ background: 'var(--bg-raised)', color: 'var(--text)' }}>My Submissions</button>
       </div>
 
       <div className="space-y-4 rounded-2xl border p-4" style={{ background: 'var(--bg-card)', borderColor: 'var(--border)' }}>
-        <input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Give your writing a title..." className="w-full rounded-xl px-4 py-3 text-sm" style={{ background: 'var(--bg-input)', border: '0.5px solid var(--border)', color: '#fff' }} />
-        <textarea value={text} onChange={(e) => setText(e.target.value)} placeholder="Paste your essay, paragraph, or creative writing here..." className="min-h-[200px] w-full rounded-2xl p-4 text-sm" style={{ background: 'var(--bg-input)', border: '0.5px solid var(--border)', color: '#fff' }} />
+        <input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Give your writing a title..." className="w-full rounded-xl px-4 py-3 text-sm" style={{ background: 'var(--bg-input)', border: '0.5px solid var(--border)', color: 'var(--text)' }} />
+        <textarea value={text} onChange={(e) => setText(e.target.value)} placeholder="Paste your essay, paragraph, or creative writing here..." className="min-h-[200px] w-full rounded-2xl p-4 text-sm" style={{ background: 'var(--bg-input)', border: '0.5px solid var(--border)', color: 'var(--text)' }} />
         <div className="flex items-center justify-between gap-3">
           <p className="text-sm" style={{ color: 'var(--text-muted)' }}>{wordCount} words</p>
           <button type="button" onClick={submit} disabled={loading} className="rounded-xl px-5 py-2.5 text-sm font-semibold text-white" style={{ background: 'var(--grad)' }}>
@@ -114,7 +114,7 @@ export function WritingCoach({ userId, conversationId }: { userId: string; conve
           </div>
 
           <div>
-            <h3 className="mb-3 text-sm font-semibold" style={{ color: '#fff' }}>Suggestions</h3>
+            <h3 className="mb-3 text-sm font-semibold" style={{ color: 'var(--text)' }}>Suggestions</h3>
             <div className="space-y-3">
               {feedback.suggestions.map((suggestion, index) => (
                 <div key={suggestion} className="rounded-xl p-3 text-sm" style={{ background: 'var(--bg-raised)', color: 'var(--text)' }}>
@@ -132,16 +132,16 @@ export function WritingCoach({ userId, conversationId }: { userId: string; conve
       ) : null}
 
       {historyOpen ? (
-        <div className="fixed inset-0 z-40 flex items-center justify-center bg-black/60 p-4" onClick={() => setHistoryOpen(false)}>
+        <div className="fixed inset-0 z-40 flex items-center justify-center p-4" style={{ background: 'rgba(15,23,42,0.20)' }} onClick={() => setHistoryOpen(false)}>
           <div className="max-h-[80vh] w-full max-w-2xl overflow-y-auto rounded-2xl border p-4" style={{ background: 'var(--bg-card)', borderColor: 'var(--border)' }} onClick={(e) => e.stopPropagation()}>
             <div className="mb-4 flex items-center justify-between">
-              <h3 className="text-lg font-semibold" style={{ color: '#fff' }}>My Submissions</h3>
+              <h3 className="text-lg font-semibold" style={{ color: 'var(--text)' }}>My Submissions</h3>
               <button type="button" onClick={() => setHistoryOpen(false)} style={{ color: 'var(--text-muted)' }}>Close</button>
             </div>
             <div className="space-y-3">
               {submissions.map((submission) => (
                 <div key={submission.id} className="rounded-xl border p-3" style={{ borderColor: 'var(--border)', background: 'var(--bg-raised)' }}>
-                  <p className="text-sm font-semibold" style={{ color: '#fff' }}>{submission.title}</p>
+                  <p className="text-sm font-semibold" style={{ color: 'var(--text)' }}>{submission.title}</p>
                   <p className="mt-1 text-xs" style={{ color: 'var(--text-muted)' }}>{new Date(submission.created_at).toLocaleString()}</p>
                 </div>
               ))}

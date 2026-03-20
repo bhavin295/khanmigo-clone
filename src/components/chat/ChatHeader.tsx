@@ -36,7 +36,7 @@ export function ChatHeader({ subject, messagesToday, onBack, showCoachMode = fal
             {meta.icon}
           </div>
           <div>
-            <p className="font-semibold" style={{ color: '#fff' }}>{meta.label}</p>
+            <p className="font-semibold" style={{ color: 'var(--text)' }}>{meta.label}</p>
             <p className="text-xs" style={{ color: 'var(--text-muted)' }}>AI Tutor</p>
           </div>
         </div>
@@ -47,12 +47,12 @@ export function ChatHeader({ subject, messagesToday, onBack, showCoachMode = fal
               type="button"
               onClick={onToggleCoachMode}
               className="rounded-full px-3 py-1 text-xs font-medium"
-              style={coachMode ? { background: 'var(--grad)', color: '#fff' } : { background: 'rgba(255,255,255,0.06)', color: 'var(--text-muted)' }}
+              style={coachMode ? { background: 'var(--grad)', color: '#fff' } : { background: 'rgba(15,23,42,0.05)', color: 'var(--text-muted)' }}
             >
               Coach Mode
             </button>
           ) : null}
-          <span className="rounded-full px-3 py-1 text-xs font-medium" style={{ background: 'rgba(255,255,255,0.06)', color: 'var(--text-muted)' }}>
+          <span className="rounded-full px-3 py-1 text-xs font-medium" style={{ background: 'rgba(15,23,42,0.05)', color: 'var(--text-muted)' }}>
             {messagesToday} messages today
           </span>
           <span className={`h-2.5 w-2.5 rounded-full ${meta.dot}`} />

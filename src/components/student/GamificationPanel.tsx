@@ -59,22 +59,22 @@ export function GamificationPanel({ userId }: { userId: string }) {
     <div className="space-y-5">
       <div className="rounded-2xl border p-5" style={{ background: 'var(--bg-card)', borderColor: 'var(--border)' }}>
         <div className="text-5xl font-extrabold" style={{ fontFamily: 'var(--font-sora, Sora, sans-serif)', background: 'var(--grad)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>{level}</div>
-        <p className="mt-1 text-sm font-medium" style={{ color: '#fff' }}>Level {level}</p>
-        <div className="mt-4 h-2 rounded-full" style={{ background: 'rgba(255,255,255,0.08)' }}>
+        <p className="mt-1 text-sm font-medium" style={{ color: 'var(--text)' }}>Level {level}</p>
+        <div className="mt-4 h-2 rounded-full" style={{ background: 'rgba(15,23,42,0.06)' }}>
           <div className="h-full rounded-full" style={{ width: `${(currentXp / 500) * 100}%`, background: 'var(--grad)', transition: 'width 0.4s ease' }} />
         </div>
         <p className="mt-2 text-xs" style={{ color: 'var(--text-muted)' }}>{currentXp} / 500 XP to Level {level + 1}</p>
       </div>
 
       <div className="rounded-2xl border p-5" style={{ background: 'var(--bg-card)', borderColor: 'var(--border)' }}>
-        <p className="text-lg font-semibold" style={{ color: '#fff' }}>🔥 {xp?.current_streak ?? 0} day streak!</p>
+        <p className="text-lg font-semibold" style={{ color: 'var(--text)' }}>🔥 {xp?.current_streak ?? 0} day streak!</p>
         <p className="mt-1 text-sm" style={{ color: 'var(--text-muted)' }}>Longest: {xp?.longest_streak ?? 0} days</p>
         <div className="mt-4 flex gap-2">
           {getWeekDays().map(({ label, date }) => {
             const key = date.toISOString().split('T')[0]
             const hasActivity = activeDates.has(key)
             return (
-              <div key={key} className="flex h-10 w-10 flex-col items-center justify-center rounded-xl text-[10px] font-semibold" style={hasActivity ? { background: 'rgba(124,58,237,0.2)', color: '#C4B5FD' } : { background: 'rgba(255,255,255,0.04)', color: 'rgba(255,255,255,0.2)' }}>
+              <div key={key} className="flex h-10 w-10 flex-col items-center justify-center rounded-xl text-[10px] font-semibold" style={hasActivity ? { background: 'rgba(124,58,237,0.2)', color: '#6D28D9' } : { background: 'rgba(15,23,42,0.04)', color: 'rgba(15,23,42,0.18)' }}>
                 {label}
               </div>
             )
@@ -84,22 +84,22 @@ export function GamificationPanel({ userId }: { userId: string }) {
 
       <div>
         <div className="mb-3 flex items-center justify-between">
-          <h3 className="text-lg font-semibold" style={{ color: '#fff' }}>Achievements ({earned.length}/{allAchievements.length})</h3>
+          <h3 className="text-lg font-semibold" style={{ color: 'var(--text)' }}>Achievements ({earned.length}/{allAchievements.length})</h3>
         </div>
         <div className="grid grid-cols-3 gap-3 md:grid-cols-4">
           {allAchievements.map((achievement) => {
             const isEarned = earnedCodes.has(achievement.code)
             return (
               <div key={achievement.code} className="flex flex-col items-center rounded-2xl border p-3 text-center" title={achievement.requirement ?? achievement.name} style={{
-                background: isEarned ? 'rgba(255,255,255,0.04)' : 'rgba(255,255,255,0.02)',
-                borderColor: isEarned ? (achievement.subject_color || 'rgba(124,58,237,0.4)') : 'rgba(255,255,255,0.08)',
+                background: isEarned ? 'rgba(124,58,237,0.10)' : 'rgba(15,23,42,0.02)',
+                borderColor: isEarned ? (achievement.subject_color || 'rgba(124,58,237,0.4)') : 'rgba(15,23,42,0.08)',
                 boxShadow: isEarned ? `0 0 14px ${(achievement.subject_color || 'rgba(124,58,237,0.3)')}` : 'none',
                 opacity: isEarned ? 1 : 0.35,
               }}>
-                <div className="flex h-[60px] w-[60px] items-center justify-center rounded-full text-[28px]" style={{ background: isEarned ? `${achievement.subject_color || 'rgba(124,58,237,0.15)'}22` : 'rgba(255,255,255,0.04)' }}>
+                <div className="flex h-[60px] w-[60px] items-center justify-center rounded-full text-[28px]" style={{ background: isEarned ? `${achievement.subject_color || 'rgba(124,58,237,0.15)'}22` : 'rgba(15,23,42,0.04)' }}>
                   {achievement.icon || (isEarned ? '🌟' : '🔒')}
                 </div>
-                <p className="mt-2 text-[10px] font-medium" style={{ color: isEarned ? '#fff' : 'var(--text-muted)' }}>{achievement.name}</p>
+                <p className="mt-2 text-[10px] font-medium" style={{ color: isEarned ? (achievement.subject_color ?? 'var(--text)') : 'var(--text-muted)' }}>{achievement.name}</p>
               </div>
             )
           })}

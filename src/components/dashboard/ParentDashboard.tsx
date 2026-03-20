@@ -17,14 +17,14 @@ export default function ParentDashboard({
   return (
     <div className="mx-auto max-w-6xl space-y-6 p-6 md:p-8">
       <section
-        className="rounded-3xl p-8 text-white"
-        style={{ background: 'linear-gradient(135deg, rgba(217,119,6,0.3), rgba(245,158,11,0.18))', border: '0.5px solid rgba(217,119,6,0.2)' }}
+        className="rounded-3xl p-8"
+        style={{ background: 'rgba(245,158,11,0.18)', border: '0.5px solid rgba(245,158,11,0.26)' }}
       >
-        <h1 className="text-3xl font-bold">Welcome, {firstName}</h1>
+        <h1 className="text-3xl font-bold" style={{ color: 'var(--text)' }}>Welcome, {firstName}</h1>
         <div className="mt-3">
           <RoleBadge role="parent" size="md" />
         </div>
-        <p className="mt-3 text-sm text-white/80">
+        <p className="mt-3 text-sm" style={{ color: 'var(--text-muted)' }}>
           Parent dashboard placeholder is ready.
         </p>
       </section>

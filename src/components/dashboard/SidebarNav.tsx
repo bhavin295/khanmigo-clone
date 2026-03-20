@@ -29,8 +29,8 @@ export function SidebarNav() {
             className={clsx(
               "flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium",
               isActive
-                ? "bg-[rgba(124,58,237,0.15)] text-violet-200"
-                : "text-white/50 hover:bg-white/5 hover:text-white/80"
+                ? "bg-[rgba(167,139,250,0.22)] text-[#6D28D9]"
+                : "text-[rgba(15,23,42,0.55)] hover:bg-[rgba(15,23,42,0.05)] hover:text-[rgba(15,23,42,0.85)]"
             )}
           >
             {item.label}

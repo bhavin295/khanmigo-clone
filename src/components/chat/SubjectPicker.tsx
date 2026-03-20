@@ -15,20 +15,20 @@ const SUBJECT_OPTIONS: {
   {
     key: "math",
     label: "📐 Math",
-    active: "bg-blue-600 text-white",
-    inactive: "bg-[rgba(255,255,255,0.05)] text-white/60 hover:bg-[rgba(255,255,255,0.08)]",
+    active: "bg-[rgba(96,165,250,0.18)] text-[rgba(15,23,42,0.92)] border border-[rgba(96,165,250,0.35)]",
+    inactive: "bg-[rgba(15,23,42,0.04)] text-[rgba(15,23,42,0.60)] hover:bg-[rgba(15,23,42,0.06)] border border-[rgba(15,23,42,0.10)]",
   },
   {
     key: "reading",
     label: "📖 Reading",
-    active: "bg-emerald-600 text-white",
-    inactive: "bg-[rgba(255,255,255,0.05)] text-white/60 hover:bg-[rgba(255,255,255,0.08)]",
+    active: "bg-[rgba(45,212,191,0.18)] text-[rgba(15,23,42,0.92)] border border-[rgba(45,212,191,0.32)]",
+    inactive: "bg-[rgba(15,23,42,0.04)] text-[rgba(15,23,42,0.60)] hover:bg-[rgba(15,23,42,0.06)] border border-[rgba(15,23,42,0.10)]",
   },
   {
     key: "science",
     label: "🔬 Science",
-    active: "bg-amber-600 text-white",
-    inactive: "bg-[rgba(255,255,255,0.05)] text-white/60 hover:bg-[rgba(255,255,255,0.08)]",
+    active: "bg-[rgba(252,211,77,0.22)] text-[rgba(15,23,42,0.92)] border border-[rgba(252,211,77,0.40)]",
+    inactive: "bg-[rgba(15,23,42,0.04)] text-[rgba(15,23,42,0.60)] hover:bg-[rgba(15,23,42,0.06)] border border-[rgba(15,23,42,0.10)]",
   },
 ];
 

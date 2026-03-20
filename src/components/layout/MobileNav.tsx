@@ -19,7 +19,7 @@ export function MobileNav({ open, onClose, title, children }: MobileNavProps) {
         aria-label="Close mobile navigation overlay"
         onClick={onClose}
         className={clsx(
-          "fixed inset-0 z-40 bg-black/40 transition-opacity duration-300",
+          "fixed inset-0 z-40 bg-[rgba(15,23,42,0.20)] transition-opacity duration-300",
           open ? "opacity-100" : "pointer-events-none opacity-0"
         )}
       />
@@ -32,7 +32,7 @@ export function MobileNav({ open, onClose, title, children }: MobileNavProps) {
         style={{ background: "var(--bg-surface)" }}
       >
         <div className="flex items-center justify-between px-4 py-3" style={{ borderBottom: "0.5px solid var(--border)" }}>
-          <p className="text-base font-bold" style={{ color: "#fff" }}>{title}</p>
+          <p className="text-base font-bold" style={{ color: "var(--text)" }}>{title}</p>
           <button
             type="button"
             onClick={onClose}

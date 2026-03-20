@@ -95,7 +95,7 @@ export function ImageSolver({
     <div
       className="space-y-3 rounded-2xl border p-4"
       style={{
-        background: "rgba(255,255,255,0.02)",
+        background: "rgba(15,23,42,0.02)",
         borderColor: "var(--border)",
       }}
     >
@@ -104,8 +104,8 @@ export function ImageSolver({
           {...getRootProps()}
           className="cursor-pointer rounded-2xl border border-dashed p-6 text-center"
           style={{
-            background: "rgba(255,255,255,0.03)",
-            borderColor: "rgba(255,255,255,0.15)",
+            background: "rgba(15,23,42,0.03)",
+            borderColor: "rgba(15,23,42,0.15)",
           }}
         >
           <input {...getInputProps()} capture="environment" />
@@ -115,7 +115,7 @@ export function ImageSolver({
           >
             <Camera className="h-6 w-6" />
           </div>
-          <p className="text-sm font-semibold" style={{ color: "#fff" }}>
+          <p className="text-sm font-semibold" style={{ color: "var(--text)" }}>
             Drop image here or tap to snap
           </p>
           <p className="mt-1 text-xs" style={{ color: "var(--text-muted)" }}>
@@ -126,7 +126,7 @@ export function ImageSolver({
             onClick={open}
             className="mt-4 rounded-xl px-4 py-2 text-sm font-semibold"
             style={{
-              background: "rgba(255,255,255,0.06)",
+              background: "rgba(15,23,42,0.05)",
               color: "var(--text)",
             }}
           >
@@ -169,7 +169,7 @@ export function ImageSolver({
           <div
             className="rounded-xl border p-3 font-mono text-xs"
             style={{
-              background: "rgba(255,255,255,0.06)",
+              background: "rgba(15,23,42,0.05)",
               borderColor: "var(--border)",
               color: "var(--text)",
             }}
@@ -189,7 +189,7 @@ export function ImageSolver({
               <span
                 className="rounded-full px-3 py-1 text-xs font-medium"
                 style={{
-                  background: "rgba(255,255,255,0.06)",
+                  background: "rgba(15,23,42,0.05)",
                   color: "var(--text-muted)",
                 }}
               >

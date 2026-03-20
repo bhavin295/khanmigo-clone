@@ -23,10 +23,10 @@ const roleOptions: {
     value: "student",
     label: "Student",
     sublabel: "I'm here to learn",
-    iconBg: "bg-[rgba(255,255,255,0.08)]",
+    iconBg: "bg-[rgba(15,23,42,0.04)]",
     iconColor: "text-violet-300",
     selectedClass: "border-violet-500 bg-[rgba(124,58,237,0.12)] shadow-sm scale-[1.02]",
-    hoverClass: "hover:border-[rgba(255,255,255,0.18)] hover:bg-[rgba(255,255,255,0.07)]",
+    hoverClass: "hover:border-[rgba(15,23,42,0.18)] hover:bg-[rgba(15,23,42,0.06)]",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" className="h-7 w-7" stroke="currentColor" strokeWidth="1.5">
         <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z" />
@@ -40,10 +40,10 @@ const roleOptions: {
     value: "teacher",
     label: "Teacher",
     sublabel: "I teach students",
-    iconBg: "bg-[rgba(255,255,255,0.08)]",
+    iconBg: "bg-[rgba(15,23,42,0.04)]",
     iconColor: "text-emerald-300",
     selectedClass: "border-emerald-500 bg-[rgba(5,150,105,0.1)] shadow-sm scale-[1.02]",
-    hoverClass: "hover:border-[rgba(255,255,255,0.18)] hover:bg-[rgba(255,255,255,0.07)]",
+    hoverClass: "hover:border-[rgba(15,23,42,0.18)] hover:bg-[rgba(15,23,42,0.06)]",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" className="h-7 w-7" stroke="currentColor" strokeWidth="1.5">
         <rect x="3" y="3" width="18" height="12" rx="2" />
@@ -57,10 +57,10 @@ const roleOptions: {
     value: "parent",
     label: "Parent",
     sublabel: "Monitoring my child",
-    iconBg: "bg-[rgba(255,255,255,0.08)]",
+    iconBg: "bg-[rgba(15,23,42,0.04)]",
     iconColor: "text-amber-200",
     selectedClass: "border-amber-500 bg-[rgba(217,119,6,0.1)] shadow-sm scale-[1.02]",
-    hoverClass: "hover:border-[rgba(255,255,255,0.18)] hover:bg-[rgba(255,255,255,0.07)]",
+    hoverClass: "hover:border-[rgba(15,23,42,0.18)] hover:bg-[rgba(15,23,42,0.06)]",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" className="h-7 w-7" stroke="currentColor" strokeWidth="1.5">
         <circle cx="9" cy="7" r="3" />
@@ -86,7 +86,7 @@ export function RoleSelector({ selectedRole, onSelect }: RoleSelectorProps) {
               "cursor-pointer rounded-2xl border p-3 text-center transition-all duration-150",
               selected
                 ? `border-2 ${role.selectedClass}`
-                : `border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.04)] ${role.hoverClass}`
+                : `border-[rgba(15,23,42,0.1)] bg-[rgba(15,23,42,0.04)] ${role.hoverClass}`
             )}
           >
             <div
@@ -98,8 +98,8 @@ export function RoleSelector({ selectedRole, onSelect }: RoleSelectorProps) {
             >
               {role.icon}
             </div>
-            <p className="mt-2 text-sm font-semibold text-white/75">{role.label}</p>
-            <p className="text-xs text-white/25">{role.sublabel}</p>
+            <p className="mt-2 text-sm font-semibold text-[rgba(15,23,42,0.72)]">{role.label}</p>
+            <p className="text-xs text-[rgba(15,23,42,0.25)]">{role.sublabel}</p>
           </button>
         );
       })}

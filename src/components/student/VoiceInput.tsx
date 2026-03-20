@@ -145,7 +145,7 @@ export function VoiceInput({ onTranscript, disabled = false }: { onTranscript: (
 
       {isListening ? (
         <div className="absolute bottom-14 right-0 w-64 rounded-xl border px-3 py-2" style={{ background: 'var(--bg-card)', borderColor: 'var(--border)' }}>
-          <div className="flex items-center gap-2 text-sm font-medium" style={{ color: '#fff' }}>
+          <div className="flex items-center gap-2 text-sm font-medium" style={{ color: 'var(--text)' }}>
             <span className="flex items-end gap-0.5">{bars.map((bar) => <span key={`popup-${bar}`} className="voice-bar" style={{ animationDelay: `${bar * 0.12}s` }} />)}</span>
             Listening...
           </div>

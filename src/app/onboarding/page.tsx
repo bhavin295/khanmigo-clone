@@ -105,18 +105,19 @@ export default function OnboardingPage() {
               {initials}
             </div>
           )}
-          <h1 className="mt-3 text-2xl font-bold" style={{ color: "#fff" }}>Welcome, {firstName}! 🎉</h1>
+          <h1 className="mt-3 text-2xl font-bold" style={{ color: "var(--text)" }}>Welcome, {firstName}! 🎉</h1>
           <p className="mt-1 text-sm" style={{ color: "var(--text-muted)" }}>One quick step before you start.</p>
         </div>
 
-        <p className="mb-3 text-sm font-semibold" style={{ color: "rgba(255,255,255,0.7)" }}>I am a...</p>
+        <p className="mb-3 text-sm font-semibold" style={{ color: "var(--text-muted)" }}>I am a...</p>
         <RoleSelector selectedRole={selectedRole} onSelect={(role) => setSelectedRole(role)} />
 
         <button
           type="button"
           onClick={handleSubmit}
           disabled={!selectedRole || submitting}
-          className="mt-6 w-full rounded-2xl bg-gradient-to-r from-violet-600 to-blue-600 py-3.5 font-semibold text-white transition-all hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
+          className="mt-6 w-full rounded-2xl py-3.5 font-semibold text-white transition-all hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
+          style={{ background: "var(--grad)" }}
         >
           {submitting ? "Saving..." : "Get Started →"}
         </button>

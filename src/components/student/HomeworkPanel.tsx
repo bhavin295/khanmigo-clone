@@ -87,7 +87,7 @@ export function HomeworkPanel({ userId }: { userId: string }) {
     <div className="space-y-4">
       <div className="flex items-center justify-between gap-3">
         <div>
-          <h3 className="text-lg font-semibold" style={{ color: '#fff' }}>Homework</h3>
+          <h3 className="text-lg font-semibold" style={{ color: 'var(--text)' }}>Homework</h3>
           <p className="text-sm" style={{ color: 'var(--text-muted)' }}>Track assignments and jump into focused help.</p>
         </div>
         <button type="button" onClick={() => setShowForm((v) => !v)} className="rounded-xl px-4 py-2 text-sm font-semibold text-white" style={{ background: 'var(--grad)' }}>
@@ -97,15 +97,15 @@ export function HomeworkPanel({ userId }: { userId: string }) {
 
       {showForm ? (
         <div className="grid gap-3 rounded-2xl border p-4 md:grid-cols-2" style={{ background: 'var(--bg-card)', borderColor: 'var(--border)' }}>
-          <input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Title" className="rounded-xl px-4 py-3 text-sm" style={{ background: 'var(--bg-input)', border: '0.5px solid var(--border)', color: '#fff' }} />
-          <select value={subject} onChange={(e) => setSubject(e.target.value as HomeworkItem['subject'])} className="rounded-xl px-4 py-3 text-sm" style={{ background: 'var(--bg-input)', border: '0.5px solid var(--border)', color: '#fff' }}>
+          <input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Title" className="rounded-xl px-4 py-3 text-sm" style={{ background: 'var(--bg-input)', border: '0.5px solid var(--border)', color: 'var(--text)' }} />
+          <select value={subject} onChange={(e) => setSubject(e.target.value as HomeworkItem['subject'])} className="rounded-xl px-4 py-3 text-sm" style={{ background: 'var(--bg-input)', border: '0.5px solid var(--border)', color: 'var(--text)' }}>
             <option value="math">Math</option>
             <option value="reading">Reading</option>
             <option value="science">Science</option>
             <option value="writing">Writing</option>
           </select>
-          <input type="date" value={dueDate} onChange={(e) => setDueDate(e.target.value)} className="rounded-xl px-4 py-3 text-sm" style={{ background: 'var(--bg-input)', border: '0.5px solid var(--border)', color: '#fff' }} />
-          <textarea value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Description" className="rounded-xl px-4 py-3 text-sm md:col-span-2" style={{ minHeight: 110, background: 'var(--bg-input)', border: '0.5px solid var(--border)', color: '#fff' }} />
+          <input type="date" value={dueDate} onChange={(e) => setDueDate(e.target.value)} className="rounded-xl px-4 py-3 text-sm" style={{ background: 'var(--bg-input)', border: '0.5px solid var(--border)', color: 'var(--text)' }} />
+          <textarea value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Description" className="rounded-xl px-4 py-3 text-sm md:col-span-2" style={{ minHeight: 110, background: 'var(--bg-input)', border: '0.5px solid var(--border)', color: 'var(--text)' }} />
           <div className="flex gap-3 md:col-span-2">
             <button type="button" onClick={addAssignment} className="rounded-xl px-4 py-2 text-sm font-semibold text-white" style={{ background: 'var(--grad)' }}>Save</button>
             <button type="button" onClick={() => setShowForm(false)} className="rounded-xl px-4 py-2 text-sm" style={{ color: 'var(--text-muted)' }}>Cancel</button>
@@ -147,20 +147,20 @@ export function HomeworkPanel({ userId }: { userId: string }) {
             >
               <div className="min-w-0 flex-1">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-2xl" style={{ background: 'rgba(255,255,255,0.06)' }}>{SUBJECT_ICON[item.subject]}</div>
+                  <div className="flex h-10 w-10 items-center justify-center rounded-2xl" style={{ background: 'rgba(15,23,42,0.05)' }}>{SUBJECT_ICON[item.subject]}</div>
                   <div className="min-w-0">
-                    <p className="truncate text-sm font-semibold" style={{ color: '#fff' }}>{item.title}</p>
+                    <p className="truncate text-sm font-semibold" style={{ color: 'var(--text)' }}>{item.title}</p>
                     <p className="truncate text-xs" style={{ color: 'var(--text-muted)' }}>{item.description || 'No description yet'}</p>
                     <p className="mt-1 text-[11px]" style={{ color: 'var(--text-faint)' }}>Due {item.due_date}</p>
                   </div>
                 </div>
               </div>
               <div className="shrink-0 text-right">
-                <span className="rounded-full px-3 py-1 text-xs font-medium" style={{ background: overdue ? 'rgba(239,68,68,0.12)' : 'rgba(255,255,255,0.06)', color: overdue ? 'rgba(252,165,165,1)' : 'var(--text-muted)' }}>
+                <span className="rounded-full px-3 py-1 text-xs font-medium" style={{ background: overdue ? 'rgba(239,68,68,0.12)' : 'rgba(15,23,42,0.04)', color: overdue ? 'rgba(252,165,165,1)' : 'var(--text-muted)' }}>
                   {item.status?.replace('_', ' ') ?? 'not started'}
                 </span>
                 {item.status === 'in_progress' ? (
-                  <div className="mt-2 h-1.5 w-24 rounded-full" style={{ background: 'rgba(255,255,255,0.08)' }}>
+                  <div className="mt-2 h-1.5 w-24 rounded-full" style={{ background: 'rgba(15,23,42,0.06)' }}>
                     <div className="h-full rounded-full" style={{ width: `${item.progress ?? 45}%`, background: 'var(--grad)' }} />
                   </div>
                 ) : null}
@@ -172,7 +172,7 @@ export function HomeworkPanel({ userId }: { userId: string }) {
 
       {!loading && filtered.length === 0 ? (
         <div className="rounded-2xl border p-6 text-center" style={{ background: 'var(--bg-card)', borderColor: 'var(--border)' }}>
-          <p className="text-sm font-medium" style={{ color: '#fff' }}>Nothing here yet</p>
+          <p className="text-sm font-medium" style={{ color: 'var(--text)' }}>Nothing here yet</p>
           <p className="mt-1 text-xs" style={{ color: 'var(--text-muted)' }}>Add an assignment to get started.</p>
           <button type="button" onClick={() => setShowForm(true)} className="mt-4 rounded-xl px-4 py-2 text-sm font-semibold text-white" style={{ background: 'var(--grad)' }}>Quick add</button>
         </div>

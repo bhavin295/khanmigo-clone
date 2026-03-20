@@ -1,7 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" rx="14" fill="#F5F3FF"/>
-  <path d="M8 24L32 14L56 24L32 34L8 24Z" fill="#7C3AED"/>
-  <path d="M18 30V40C18 43.5 24.5 47 32 47C39.5 47 46 43.5 46 40V30L32 36L18 30Z" fill="#6D28D9"/>
-  <circle cx="52" cy="31" r="3" fill="#2563EB"/>
-  <path d="M52 34V44" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
+  <rect x="4" y="4" width="56" height="56" rx="18" fill="#FFFFFF" stroke="#2DD4BF" stroke-width="4"/>
+
+  <!-- Graduation cap (simple, education-themed) -->
+  <path
+    d="M14 26L32 16L50 26L32 36L14 26Z"
+    fill="#059669"
+  />
+  <path
+    d="M22 30V38C22 42 27 46 32 46C37 46 42 42 42 38V30L32 36L22 30Z"
+    fill="#059669"
+    opacity="0.95"
+  />
+
+  <!-- Tassel dot -->
+  <circle cx="50" cy="27" r="3.2" fill="#FFBD2E"/>
+  <path d="M50 30V44" stroke="#FFBD2E" stroke-width="2.2" stroke-linecap="round"/>
 </svg>

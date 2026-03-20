@@ -16,17 +16,17 @@ export function AuthDivider({ text, className = "", variant = "default" }: AuthD
     >
       {isDark ? (
         <>
-          <div className="flex-1 shrink-0" style={{ height: "0.5px", background: "rgba(255,255,255,0.08)" }} />
-          <span className="text-[11px] uppercase whitespace-nowrap text-white/30" style={{ letterSpacing: "0.8px" }}>
+          <div className="flex-1 shrink-0" style={{ height: "0.5px", background: "rgba(15,23,42,0.10)" }} />
+          <span className="text-[11px] uppercase whitespace-nowrap" style={{ letterSpacing: "0.8px", color: "var(--text-faint)" }}>
             {text}
           </span>
-          <div className="flex-1 shrink-0" style={{ height: "0.5px", background: "rgba(255,255,255,0.08)" }} />
+          <div className="flex-1 shrink-0" style={{ height: "0.5px", background: "rgba(15,23,42,0.10)" }} />
         </>
       ) : (
         <>
-          <div className="h-px flex-1 bg-white/10" />
-          <span className="text-xs uppercase tracking-wider text-white/30">{text}</span>
-          <div className="h-px flex-1 bg-white/10" />
+          <div className="h-px flex-1 bg-[rgba(15,23,42,0.08)]" />
+          <span className="text-xs uppercase tracking-wider" style={{ color: "var(--text-faint)" }}>{text}</span>
+          <div className="h-px flex-1 bg-[rgba(15,23,42,0.08)]" />
         </>
       )}
     </div>
